@@ -31,25 +31,35 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 10px; /* Reduced padding for a smaller button */
-    background-color: #8c52be; /* Discord purple color */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 14px; /* Reduced font size */
+    padding: 6px 10px;
+    background-color: #8c52be; /* Slightly transparent Discord purple */
+    border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s ease;
     margin-right: 10px; /* Adjust spacing as needed */
 }
 
-.discord-button:hover {
-    background-color: #6a3f8f; /* Darker purple on hover */
+.discord-logo {
+    width: 24px; /* Adjust size of the logo */
+    height: auto;
+    margin-left: 5px; /* Space between text and logo */
 }
 
-.discord-logo {
-    width: 24px; /* Adjust logo size */
-    height: auto;
-    margin-right: 7px; /* Space between logo and text */
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .discord-button {
+        padding: 8px; /* Adjust padding for mobile */
+        background-color: #6a3f8f; /* Keep the same background */
+        border-radius: 50%; /* Makes it a circular button */
+    }
+
+    .discord-button span {
+        display: none; /* Hide text on mobile */
+    }
+
+    .discord-logo {
+        width: 22px; /* Size of the logo */
+        height: auto;
+    }
 }
 
 /* Prevent background jumping on mobile */
@@ -67,7 +77,7 @@ body::before {
     padding: 15px 20px;
     background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
     color: #fff;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
 }
 
 .navbar h1 {
