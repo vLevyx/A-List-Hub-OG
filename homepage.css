@@ -43,13 +43,12 @@ body::before {
     height: auto;
     margin-left: 5px; /* Space between text and logo */
 }
-
 /* Media query for mobile devices */
 @media (max-width: 768px) {
     .discord-button {
-        padding: 8px; /* Adjust padding for mobile */
-        background-color: #6a3f8f; /* Keep the same background */
-        border-radius: 50%; /* Makes it a circular button */
+        width: 40px; /* Set a fixed width for consistency */
+        height: 40px; /* Set a fixed height for consistency */
+        padding: 0; /* Remove padding for a circular button */
     }
 
     .discord-button span {
@@ -57,8 +56,10 @@ body::before {
     }
 
     .discord-logo {
-        width: 22px; /* Size of the logo */
+        width: 24px; /* Size of the logo */
         height: auto;
+        display: block; /* Ensure the logo is a block element */
+        margin: auto; /* Center the logo */
     }
 }
 
