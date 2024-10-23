@@ -26,13 +26,15 @@ body::before {
     z-index: -1;
 }
 
-/* Navbar Styles */
+/* Transparent Navbar Styles */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: #007bff;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+    color: #fff;
+    backdrop-filter: blur(10px); /* Optional: Add blur for a frosted glass effect */
 }
 
 .navbar h1 {
@@ -129,13 +131,14 @@ body::before {
     color: #fff;
 }
 
-/* Footer Styles */
+/* Transparent Footer Styles */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #007bff;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
     color: #fff;
     font-size: 0.9rem;
+    backdrop-filter: blur(10px); /* Optional: Add blur for frosted glass effect */
 }
 
 /* Mobile Responsiveness */
