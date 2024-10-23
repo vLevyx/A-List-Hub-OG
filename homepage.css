@@ -10,25 +10,20 @@ body {
     background-color: #f0f0f0;
     color: #333;
     position: relative;
-    /* Add this line */
-    overflow: hidden;
-    /* Optional: Prevent scrollbars */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Add this CSS for the background image and dark overlay */
 body::before {
     content: "";
-    position: absolute;
+    position: fixed; /* Use fixed to keep the background still */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: url('https://warfarehistorynetwork.com/wp-content/uploads/2022/10/arma6.jpg') no-repeat center center/cover;
-    /* Replace with your image URL */
     filter: brightness(0.5);
-    /* Darken the image */
     z-index: -1;
-    /* Ensure the overlay is behind other content */
 }
 
 /* Navbar Styles */
@@ -68,15 +63,15 @@ body::before {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: url('https://www.svgrepo.com/show/18061/crafting.svg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
+    text-align: center;
 }
 
 .hero-content {
-    text-align: center;
+    z-index: 1; /* Ensure content is above the background overlay */
 }
 
 .hero h2 {
@@ -90,9 +85,7 @@ body::before {
     margin-bottom: 30px;
 }
 
-/* Ensure equal button sizes */
-/* Ensure equal button sizes with a maximum width */
-/* Ensure equal button sizes */
+/* CTA Buttons */
 .cta-buttons {
     display: flex;
     justify-content: center;
@@ -101,7 +94,7 @@ body::before {
 }
 
 .cta-button {
-    flex: 1 1 auto; /* Allow buttons to resize on desktop */
+    flex: 1 1 auto;
     text-align: center;
     padding: 10px 20px;
     background-color: #007bff;
@@ -117,22 +110,6 @@ body::before {
     background-color: #0056b3;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .cta-buttons {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: center; /* Center the buttons */
-    }
-
-    .cta-button {
-        width: 80%; /* Make buttons 80% of screen width */
-        max-width: 400px; /* Limit button width for larger mobile screens */
-        margin: 10px 0; /* Add vertical space between buttons */
-        font-size: 1rem;
-        padding: 10px;
-    }
-}
-
 /* About Section */
 .about-section {
     padding: 40px 20px;
@@ -143,18 +120,6 @@ body::before {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #fff;
-}
-
-.container {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    background-image: url('https://media.moddb.com/images/games/1/80/79363/ss_58e388820fc1f8a41944acc2193b6e9aa.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s ease, color 0.1s ease;
 }
 
 .about-section p {
@@ -171,4 +136,26 @@ footer {
     background-color: #007bff;
     color: #fff;
     font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 80%; /* Ensure buttons don't take up the full width */
+        max-width: 400px;
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
 }
