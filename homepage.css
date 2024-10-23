@@ -13,15 +13,16 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-/* Add this CSS for the background image and dark overlay */
+/* Add this CSS for the background image and fix the resizing issue */
 body::before {
     content: "";
-    position: fixed; /* Use fixed to keep the background still */
+    position: fixed; /* Fixed the position */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: url('https://warfarehistorynetwork.com/wp-content/uploads/2022/10/arma6.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Prevent resizing during scroll */
     filter: brightness(0.5);
     z-index: -1;
 }
