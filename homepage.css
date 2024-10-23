@@ -11,20 +11,27 @@ body {
     color: #333;
     position: relative;
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
-/* Add this CSS for the background image and fix the resizing issue */
+/* Add this CSS for the background image */
 body::before {
     content: "";
-    position: fixed; /* Fixed the position */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: url('https://warfarehistorynetwork.com/wp-content/uploads/2022/10/arma6.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Prevent resizing during scroll */
     filter: brightness(0.5);
     z-index: -1;
+}
+
+/* Prevent background jumping on mobile */
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: scroll; /* Remove 'fixed' for mobile to avoid jump */
+    }
 }
 
 /* Transparent Navbar Styles */
@@ -35,7 +42,7 @@ body::before {
     padding: 15px 20px;
     background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
     color: #fff;
-    backdrop-filter: blur(10px); /* Optional: Add blur for a frosted glass effect */
+    backdrop-filter: blur(10px);
 }
 
 .navbar h1 {
@@ -92,8 +99,8 @@ body::before {
 .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .cta-button {
@@ -139,7 +146,7 @@ footer {
     background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
     color: #fff;
     font-size: 0.9rem;
-    backdrop-filter: blur(10px); /* Optional: Add blur for frosted glass effect */
+    backdrop-filter: blur(10px);
 }
 
 /* Mobile Responsiveness */
@@ -152,7 +159,6 @@ footer {
     .cta-button {
         width: 80%; /* Ensure buttons don't take up the full width */
         max-width: 400px;
-        margin: 10px 0;
     }
 
     .hero h2 {
@@ -161,5 +167,21 @@ footer {
 
     .hero p {
         font-size: 1rem;
+    }
+}
+
+/* Fix for page load starting at the bottom */
+html, body {
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    overflow-y: scroll; /* Ensure scroll behavior is natural */
+}
+
+/* Enforce height on mobile for button overlap fix */
+@media (max-width: 768px) {
+    .cta-button {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
     }
 }
