@@ -27,6 +27,31 @@ body::before {
     z-index: -1;
 }
 
+.discord-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px; /* Reduced padding for a smaller button */
+    background-color: #8c52be; /* Discord purple color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 14px; /* Reduced font size */
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+
+.discord-button:hover {
+    background-color: #6a3f8f; /* Darker purple on hover */
+}
+
+.discord-logo {
+    width: 24px; /* Adjust logo size */
+    height: auto;
+    margin-right: 7px; /* Space between logo and text */
+}
+
 /* Prevent background jumping on mobile */
 @media (max-width: 768px) {
     body::before {
