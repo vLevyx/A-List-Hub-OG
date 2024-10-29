@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background-color: #f0f0f0;
+    transition: background-color 0.2s ease;
+}
+
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease, color 0.1s ease;
+    position: relative;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+    letter-spacing: 2px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: #007bff;
+    margin: 5px auto;
+    border-radius: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.select-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Mobile Optimization - Match styling for smaller screens */
+@media (max-width: 768px) {
+    .select-box {
+        width: 100%; /* Use the full width of the screen */
+        max-width: 100%; /* Ensure no maximum width is set */
+        padding: 12px; /* Slightly increased padding for touch interaction */
+        font-size: 18px; /* Increase font size for better readability */
+    }
+
+    /* Ensuring container takes full width on mobile */
+    .container {
+        width: 100%;
+        padding: 15px;
+        margin: 0;
+    }
+}
+
+/* For very small screens (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+    .select-box {
+        font-size: 16px; /* Reduce font size slightly */
+        padding: 10px; /* Slight padding adjustment */
+    }
+
+    .crafting-level {
+        font-size: 16px; /* Ensure consistent text size in smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .container {
+        padding: 10px; /* Slightly less padding on the container */
+    }
+}
+
+/* Adjust h1 header size for mobile screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem; /* Reduce font size for mobile */
+    }
+}
+
+/* Further adjustments for very small screens (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.3rem; /* Further reduce the font size for very small screens */
+    }
+}
+
+#darkModeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Bring button to the front */
+}
+
+#darkModeButton img {
+    width: 24px;
+    height: 24px;
+}
+
+#darkModeButton:hover {
+    transform: scale(1.1); /* Slightly less scale effect */
+}
+
+table.result {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+table.result th, table.result td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table.result th {
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+body.dark-mode h1 {
+    color: #ababab; /* Brighter text color for dark mode */
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.196); /* Add shadow for readability */
+}
+
+.container.dark-mode {
+    background-color: #444;
+}
+
+.select-box.dark-mode {
+    background-color: #555;
+    border-color: #777;
+    color: #e0e0e0;
+}
+
+table.result.dark-mode th, table.result.dark-mode td {
+    background-color: #555;
+    color: #e0e0e0;
+    border-color: #777;
+}
+
+/* Button Group Styles */
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid #007bff;
+    background-color: #fff; /* Light mode background */
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.filter-button.selected {
+    background-color: #007bff; /* Selected state */
+    color: #fff;
+}
+
+.filter-button:hover {
+    background-color: #f0f0f0; /* Light mode hover effect */
+}
+
+/* Dark Mode Styles for Button Group */
+body.dark-mode .filter-button {
+    background-color: #555; /* Dark mode background */
+    border-color: #777; /* Dark mode border color */
+    color: #e0e0e0; /* Dark mode text color */
+}
+
+body.dark-mode .filter-button.selected {
+    background-color: #007bff; /* Keep selected state blue */
+    color: #fff; /* Keep selected text white */
+}
+
+body.dark-mode .filter-button:hover {
+    background-color: #666; /* Dark mode hover effect */
+}

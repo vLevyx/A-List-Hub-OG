@@ -325,6 +325,78 @@ body.dark-mode {
     background: #f9f9f9; /* Color of the underline in dark mode */
 }
 
+/* Main result container */
+#result {
+    margin: 20px;
+}
+
+/* Style the breakdown button to fit the overall design */
+.breakdown-btn {
+    background-color: #007BFF; /* Match button color to a cohesive style */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.breakdown-btn:hover {
+    background-color: #0056b3; /* Darken color on hover */
+}
+
+.breakdown-btn.active {
+    background-color: #f44336; /* Change to red when active */
+}
+
+.breakdown-toggle-container {
+    margin-top: 20px;
+    text-align: center; /* Center the button */
+}
+
+/* Default styles for light mode */
+#breakdownSection {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for light mode */
+    border: 1px solid #ccc; /* Light border for light mode */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for light mode */
+    color: #333; /* Dark text color for readability in light mode */
+}
+
+/* Light mode styles for list items */
+#breakdownSection ul li {
+    color: #333; /* Dark text color for list items in light mode */
+}
+
+#breakdownSection h3 {
+    color: #555; /* Darker shade for headings in light mode */
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Dark mode styles */
+.dark-mode #breakdownSection {
+    background-color: #666; /* Dark background for contrast in dark mode */
+    border: 1px solid #444; /* Darker border to match the dark theme */
+    color: #f1f1f1; /* Light text color for readability in dark mode */
+}
+
+.dark-mode #breakdownSection ul li {
+    color: #f1f1f1; /* Light text color for list items in dark mode */
+}
+
+.dark-mode #breakdownSection h3 {
+    color: #e0e0e0; /* Slightly darker shade for headings in dark mode */
+}
+
+/* Hidden class for hiding breakdown sections */
+.hidden {
+    display: none;
+}
+
 /* Title Heart Color */
 .footer .heart {
     color: red; /* Keep the heart red */

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Crafting Calculator</title>
-    <link rel="stylesheet" href="calculator.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -23,6 +23,8 @@
                 <option value="Vests">Vests</option>
                 <option value="Helmets">Helmets</option>
                 <option value="Clothes">Clothes</option>
+                <option value="Components">Components</option>
+                <option value="HQ Components">HQ Components</option>
             </select>
         </div>
         <div class="form-group">
@@ -47,7 +49,12 @@
             <h2>HQ Components needed:</h2>
             <ul id="hq-components-list"></ul>
         </div>
-        
+        <div id="result"></div>
+        <!-- Show/Hide Breakdown Button -->
+        <div class="breakdown-toggle-container">
+        <button id="toggleBreakdownBtn" class="breakdown-btn" onclick="toggleBreakdown()">Show Breakdown</button>
+        </div>
+
         <p class="footer">Made with ❤️ by Levy</p>
         <p class="footer">ELAN: v.0.6.23</p>
     </div>

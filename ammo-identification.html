@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weapon & Ammo Compatibility</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <button id="darkModeButton">
+            <img src="https://www.svgrepo.com/show/433086/light-mode.svg" alt="Toggle Dark Mode">
+        </button>
+        <h1>Weapon & Ammo Compatibility</h1>
+        <div class="form-group">
+    <label for="search">Search by Weapon or Ammo:</label>
+    <input type="text" id="search" class="select-box" placeholder="Type here...">
+</div>
+<div class="button-group">
+    <button class="filter-button" data-type="assault">Assault Rifles</button>
+    <button class="filter-button" data-type="machine-gun">Machine Guns</button>
+    <button class="filter-button" data-type="submachine">Submachine Guns</button>
+    <button class="filter-button" data-type="sniper">Snipers</button>
+    <button class="filter-button" data-type="marksman">Marksmen Rifles</button>
+    <button class="filter-button" data-type="pistol">Pistols</button>
+</div>
+        <table id="compatibilityTable" class="result">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Weapon</th>
+                    <th onclick="sortTable(1)">Ammo Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Compatibility data will be populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="ammo-identification.js"></script>
+</body>
+</html>
