@@ -70,9 +70,25 @@ h1::after {
 
     /* Ensuring container takes full width on mobile */
     .container {
-        width: 100%;
+        width: 95%; /* Adjusted to be closer to full width */
         padding: 15px;
-        margin: 0;
+        margin: 10px auto; /* Center container with margin */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Adjust header size for mobile */
+        white-space: normal; /* Allow wrapping of text */
+    }
+
+    .button-group {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: stretch; /* Stretch to full width */
+        margin-bottom: 20px; /* Add spacing below button group */
+        gap: 5px; /* Add gap between buttons */
+    }
+
+    .filter-button {
+        margin: 5px 0; /* Add margin between buttons */
     }
 }
 
@@ -82,26 +98,10 @@ h1::after {
         font-size: 16px; /* Reduce font size slightly */
         padding: 10px; /* Slight padding adjustment */
     }
-
-    .crafting-level {
-        font-size: 16px; /* Ensure consistent text size in smaller screens */
-        padding: 10px; /* Adjust padding */
-    }
-
     .container {
         padding: 10px; /* Slightly less padding on the container */
     }
-}
 
-/* Adjust h1 header size for mobile screens */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem; /* Reduce font size for mobile */
-    }
-}
-
-/* Further adjustments for very small screens (e.g., phones in portrait mode) */
-@media (max-width: 480px) {
     h1 {
         font-size: 1.3rem; /* Further reduce the font size for very small screens */
     }
@@ -199,7 +199,7 @@ table.result.dark-mode th, table.result.dark-mode td {
 }
 
 .filter-button:hover {
-    background-color: #f0f0f0; /* Light mode hover effect */
+    background-color: #dcdcdc; /* Light mode hover effect */
 }
 
 /* Dark Mode Styles for Button Group */
