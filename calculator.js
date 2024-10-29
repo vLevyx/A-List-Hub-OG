@@ -9,16 +9,22 @@ const hqComponentsList = ['Component (HQ)', 'Weapon Part (HQ)', 'Stabilizer (HQ)
 const itemsByCategory = {
     'Weapons':  ['AK-47', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
                 'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
-    'Magazines': ['5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 200rnd M249 Belt', '5.56x45mm 30rnd STANAG Mag',
-                '7.62x54mmR 100rnd PK Belt', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm M80 Mag', '7.62x51mm 20rnd M14 Mag', '7.62x54mmR 10rnd SVD Mag', '8rnd .45 ACP', '9x18mm 8rnd PM Mag',
-                '9x19mm 15rnd M9 Mag', '30rnd 9x19 Mag'], 
-    'Attachments': ['ART II Scope', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope'], 
+
+    'Magazines': ['9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '8rnd .45 ACP', '.50 AE 7rnd Mag', '12/70 7mm Buckshot', '4.6x40 40rnd Mag', 
+                '5.56x45mm 30rnd STANAG Mag', '7.62x39mm 30rnd Sa-58 Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', 
+                '5.56x45 30rnd AUG Mag', '.300 Blackout Mag', '7.62x51 FMJ 20rnd Mag', '5rnd .338 FMJ', '7.62x51 30rnd Mag', 
+                '5.56x45mm 200rnd M249 Belt', '7.62x54mmR 100rnd PK Belt'],
+
+    'Attachments': ['ART II Scope', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope'],
+
     'Vehicles': ['M1025 Light Armoured Vehicle', 'M151A2 Off-Road', 'M151A2 Off-Road Open Top', 'M923A1 Fuel Truck', 'M923A1 Transport Truck', 'M923A1 Transport Truck - Canopy', 
                 'M998 Light Utility Vehicle', 'M998 Light Utility Vehicle - Canopy', 'Mi-8MT Transport Helicopter', 'Pickup-Truck', 'S1203 Minibus', 'UAZ-452 Off-road', 'UAZ-469 Off-road', 'UAZ-469 Off-road - Open Top', 
                 'UH-1H Transport Helicopter', 'Ural-4320 Fuel Truck', 'Ural-4320 Transport Truck', 'Ural-4320 Transport Truck - Canopy', 'Ural (Device)', 'VW Rolf'],
     'Vests':    ['6B2 Vest', '6B3 Vest', 'M69 Vest', 'PASGT Vest'], 
+
     'Helmets':  ['PASGT Helmet', 'PASGT Helmet - Camouflaged', 'PASGT Helmet - Camouflaged Netting', 'SPH-4 Helmet', 'SSh-68 Helmet', 
                 'SSh-68 Helmet - Camouflaged', 'SSh-68 Helmet - Cover', 'SSh-68 Helmet - Netting', 'ZSh-5 Helmet'], 
+
     'Clothes':  ['ALICE Medium Backpack', 'Bandana', 'Balaclava', 'BDU Blouse', 'BDU Blouse - Rolled-up', 'BDU Trousers', 'Beanie', 'Boonie', 'Cargo Pants', 'Cargo Pants (Colored)',
                 'Cardigan', 'Classic Shoe', 'CWU-27 Pilot Coveralls', 'Dress', 'Fedora', 'Fisher Hat', 'Flat Cap', 'Half Mask', 'Hunting Vest',
                 'Jacket', 'Jeans', 'Jeans (Colored)', 'KLMK Coveralls', 'Knit Cap', 'Kolobok Backpack', 'M70 Backpack', 'M70 Cap', 'M70 Parka',
@@ -26,8 +32,10 @@ const itemsByCategory = {
                 'Panamka', 'Paper Bag', 'Polo', 'Pullover', 'Robe', 'Runner Shoe', 'Sneaker', 'Soviet Combat Boots',
                 'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
                 'Veshmeshok Backpack', 'Wool Hat'],
+
 'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
                 'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
+
     'Components': ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 
                 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor']
 
@@ -58,19 +66,23 @@ const craftingLevels = {
     'Stegr AUG': 6,
     'SR-25 Rifle': 11,
     'SVD': 10,
-    '5.45x39mm 30rnd AK Mag': 8,
-    '5.45x39mm 45rnd RPK-74 Tracer Mag': 10,
-    '5.56x45mm 200rnd M249 Belt': 11,
-    '5.56x45mm 30rnd STANAG Mag': 5,
-    '7.62x39mm 30rnd Sa-58 Mag': 9,
-    '7.62x51mm M80 Mag': 10,
-    '7.62x51mm 20rnd M14 Mag': 7,
-    '7.62x54mmR 10rnd SVD Mag': 10,
-    '7.62x54mmR 100rnd PK Belt': 12,
-    '8rnd .45 ACP': 4,
     '9x18mm 8rnd PM Mag': 2,
     '9x19mm 15rnd M9 Mag': 3,
-    '30rnd 9x19 Mag': 5,
+    '8rnd .45 ACP': 4,
+    '.50 AE 7rnd Mag': 9999, // add to rest of code     \/ \/ \/ (need to add to itemComponents) \/ \/ \/
+    '12/70 7mm Buckshot': 9999, // add to rest of code
+    '4.6x40 40rnd Mag': 9999, // add to rest of code
+    '5.56x45mm 30rnd STANAG Mag': 5,
+    '7.62x39mm 30rnd Sa-58 Mag': 9,
+    '5.45x39mm 30rnd AK Mag': 8,
+    '5.45x39mm 45rnd RPK-74 Tracer Mag': 10,
+    '5.56x45 30rnd AUG Mag': 9999, // add to rest of code
+    '.300 Blackout Mag': 9999, // add to rest of code
+    '7.62x51 FMJ 20rnd Mag': 9999, // add to rest of code
+    '5rnd .338 FMJ': 9999, // add to rest of code
+    '7.62x51 30rnd Mag': 9999, // add to rest of code       /\ /\ /\ (need to add to itemComponents) /\ /\ /\
+    '5.56x45mm 200rnd M249 Belt': 11,
+    '7.62x54mmR 100rnd PK Belt': 12,
     'ART II Scope': 7,
     'Carry Handle Red-Dot-Sight': 7,
     'PSO-1 Scope': 7,
