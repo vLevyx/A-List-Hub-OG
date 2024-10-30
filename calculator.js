@@ -70,7 +70,7 @@ const craftingLevels = {
     '9x19mm 15rnd M9 Mag': 3,
     '8rnd .45 ACP': 4,
     '.50 AE 7rnd Mag': 9999, // add to rest of code     \/ \/ \/ (need to add to itemComponents) \/ \/ \/
-    '12/70 7mm Buckshot': 9999, // add to rest of code
+    '12/70 7mm Buckshot': 7,
     '4.6x40 40rnd Mag': 9999, // add to rest of code
     '5.56x45mm 30rnd STANAG Mag': 5,
     '7.62x39mm 30rnd Sa-58 Mag': 9,
@@ -312,6 +312,10 @@ const itemComponents = {
         }
 },
     'Magazines': {
+        '12/70 7mm Buckshot': {
+            'Non-HQ': { 'Ammo': 1 },
+            'HQ': {}
+        },
         '30rnd 9x19 Mag': {
             'Non-HQ': { 'Ammo': 1 },
             'HQ': {}
