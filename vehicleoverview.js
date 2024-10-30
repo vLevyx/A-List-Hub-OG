@@ -1,7 +1,7 @@
 const vehicles = [
-    { name: "UAZ-469 Off-Road", price: 10000, ores: 13, honeycombs: 9999, photo: "VehiclePhotos/uaz469_cover.png" },
-    { name: "UAZ-469 Off-Road - Open Top", price: 10000, ores: 13, honeycombs: 9999, photo: "VehiclePhotos/uaz469offroad-opentop.png" },
-    { name: "M151A2 Off-Road - Open Top", price: 25000, ores: 16, honeycombs: 9999, photo: "VehiclePhotos/m151a2offroad-opentop.png" },
+    { name: "UAZ-469 Off-Road", price: 10000, ores: 13, honeycombs: 9999, photo: "https://raw.githubusercontent.com/vLevyx/A-List-Hub-Test/main/uaz469_cover.png" },
+    { name: "UAZ-469 Off-Road - Open Top", price: 10000, ores: 13, honeycombs: 9999, photo: "https://raw.githubusercontent.com/vLevyx/A-List-Hub-Test/main/uaz469offroad-opentop.png" },
+    { name: "M151A2 Off-Road - Open Top", price: 25000, ores: 16, honeycombs: 9999, photo: "m151a2offroad-opentop.png" },
     { name: "M151A2 Off-Road", price: 25000, ores: 16, honeycombs: 9999, photo: "VehiclePhotos/m151a2_cover.png" },
     { name: "UAZ-452 Off-Road", price: 95000, ores: 28, honeycombs: 9999, photo: "VehiclePhotos/uaz452offroad.png" },
     { name: "M923A1 Transport Truck", price: 800000, ores: 50, honeycombs: 9999, photo: "VehiclePhotos/m923a1.png" },
@@ -15,11 +15,11 @@ const vehicles = [
     { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, honeycombs: 9999, photo: "VehiclePhotos/m998LUV.png" },
     { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, honeycombs: 9999, photo: "VehiclePhotos/m998LUVcanopy.png" },
     { name: "M1025 Light Armored Vehicle", price: 250000, ores: 18, honeycombs: 9999, photo: "VehiclePhotos/m1025.png" },
-    { name: "VW Rolf", price: 800000, ores: 18, honeycombs: 9999, photo: "VehiclePhotos/vwrolf.png" },
+    { name: "VW Rolf", price: 800000, ores: 18, honeycombs: 9999, photo: "vwrolf.png" },
     { name: "Pickup Truck", price: 500000, ores: 18, honeycombs: 9999, photo: "VehiclePhotos/pickuptruck.png" },
     { name: "UAZ-452 Off-Road (Banana)", price: 450000, ores: 0, honeycombs: 9999, photo: "VehiclePhotos/uaz452offroad.png" },
-    { name: "MI8-MT Transport Helicopter", price: 58000000, ores: 26, honeycombs: 9999, photo: "VehiclePhotos/mi8-mt.png" },
-    { name: "UH-1H Transport Helicopter", price: 47000000, ores: 26, honeycombs: 9999, photo: "VehiclePhotos/uh-1h.png" }
+    { name: "MI8-MT Transport Helicopter", price: 58000000, ores: 26, honeycombs: 9999, photo: "https://raw.githubusercontent.com/vLevyx/A-List-Hub-Test/main/mi8-mt.png" },
+    { name: "UH-1H Transport Helicopter", price: 47000000, ores: 26, honeycombs: 9999, photo: "uh-1h.png" }
 ];
 
 const discountRates = {
