@@ -10,7 +10,6 @@ const vehicles = [
     { name: "Ural-4320 Fuel Truck", price: 2800000, ores: 83, honeycombs: 9999, photo: "ural4320_fuel.png" },
     { name: "Ural-4320 Transport Truck", price: 2800000, ores: 100, honeycombs: 9999, photo: "ural4320transporttruck.png" },
     { name: "Ural-4320 Transport Truck - Canopy", price: 4000000, ores: 116, honeycombs: 9999, photo: "ural4320_cover.png" },
-    { name: "S1203 Minibus", price: 185000, ores: 0, honeycombs: 9999, photo: "uaz452offroad.png" },
     { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, honeycombs: 9999, photo: "m998LUV.png" },
     { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, honeycombs: 9999, photo: "m998LUVcanopy.png" },
     { name: "M1025 Light Armored Vehicle", price: 250000, ores: 18, honeycombs: 9999, photo: "m1025.png" },
