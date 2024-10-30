@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Overview</title>
+    <link rel="stylesheet" href="vehicleoverview.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <h1>Vehicle Overview</h1>
+        <button id="mode-toggle" onclick="toggleMode()">🌞</button>
+    </header>
+
+    <div class="container">
+        <label for="reputation">Select Reputation:</label>
+        <select id="reputation" onchange="updatePrices()">
+            <option value="neutral">NEUTRAL</option>
+            <option value="positive1">POSITIVE+</option>
+            <option value="positive2">POSITIVE++</option>
+            <option value="positive3">POSITIVE+++</option>
+            <option value="negative1">NEGATIVE-</option>
+            <option value="negative2">NEGATIVE--</option>
+            <option value="negative3">NEGATIVE---</option>
+        </select>
+
+        <div id="vehicle-container" class="vehicle-container"></div>
+    </div>
+
+    <script src="vehicleoverview.js"></script>
+</body>
+</html>
