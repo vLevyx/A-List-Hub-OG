@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Snipers
     { weapon: 'M21 SWS', ammo: '7.62x51mm 20rnd M14 Mag', type: 'sniper' },
-    { weapon: 'SR-25 Rifle', ammo: '7.62x51mm 30rnd Mag', type: 'sniper' },
+    { weapon: 'SR-25 Rifle', ammo: 'SR25 7.62x51mm 20rnd', type: 'sniper' },
     { weapon: 'SVD', ammo: '7.62x54mmR 10rnd SVD Mag', type: 'sniper' },
     { weapon: 'SSG10A2', ammo: '5rnd .338 FMJ', type: 'sniper' },
 
