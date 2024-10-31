@@ -221,7 +221,7 @@ select#reputation::after {
 .back-arrow {
     position: fixed;
     top: 15px;
-    left: 10px;
+    left: 40px;
     font-size: 30px; /* Adjust the size of the bracket if needed */
     color: #333; /* Default color for light mode */
     text-decoration: none;
