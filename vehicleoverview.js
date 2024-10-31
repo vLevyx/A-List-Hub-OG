@@ -1,20 +1,20 @@
 const vehicles = [
-    { name: "M1025 Light Armored Vehicle", price: 250000, ores: 18, honeycombs: 9999, photo: "m1025.png" },
-    { name: "M151A2 Off-Road", price: 25000, ores: 16, honeycombs: 9999, photo: "m151a2_cover.png" },
-    { name: "M151A2 Off-Road - Open Top", price: 25000, ores: 16, honeycombs: 9999, photo: "m151a2offroad-opentop.png" },
-    { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, honeycombs: 9999, photo: "m998LUV.png" },
-    { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, honeycombs: 9999, photo: "m998LUVcanopy.png" },
-    { name: "M923A1 Fuel Truck", price: 1000000, ores: 53, honeycombs: 9999, photo: "m923a1_fuel.png" },
-    { name: "M923A1 Transport Truck", price: 800000, ores: 50, honeycombs: 9999, photo: "m923a1.png" },
-    { name: "M923A1 Transport Truck - Canopy", price: 1800000, ores: 83, honeycombs: 9999, photo: "m923a1_cover.png" },
-    { name: "Pickup Truck", price: 500000, ores: 18, honeycombs: 9999, photo: "pickuptruck.png" },
-    { name: "UAZ-452 Off-Road", price: 95000, ores: 28, honeycombs: 9999, photo: "uaz452offroad.png" },
     { name: "UAZ-469 Off-Road", price: 10000, ores: 13, honeycombs: 9999, photo: "uaz469_cover.png" },
     { name: "UAZ-469 Off-Road - Open Top", price: 10000, ores: 13, honeycombs: 9999, photo: "uaz469offroad-opentop.png" },
+    { name: "M151A2 Off-Road - Open Top", price: 25000, ores: 16, honeycombs: 9999, photo: "m151a2offroad-opentop.png" },
+    { name: "M151A2 Off-Road", price: 25000, ores: 16, honeycombs: 9999, photo: "m151a2_cover.png" },
+    { name: "UAZ-452 Off-Road", price: 95000, ores: 28, honeycombs: 9999, photo: "uaz452offroad.png" },
+    { name: "M923A1 Transport Truck", price: 800000, ores: 50, honeycombs: 9999, photo: "m923a1.png" },
+    { name: "M923A1 Fuel Truck", price: 1000000, ores: 53, honeycombs: 9999, photo: "m923a1_fuel.png" },
+    { name: "M923A1 Transport Truck - Canopy", price: 1800000, ores: 83, honeycombs: 9999, photo: "m923a1_cover.png" },
     { name: "Ural-4320 Fuel Truck", price: 2800000, ores: 83, honeycombs: 9999, photo: "ural4320_fuel.png" },
     { name: "Ural-4320 Transport Truck", price: 2800000, ores: 100, honeycombs: 9999, photo: "ural4320transporttruck.png" },
     { name: "Ural-4320 Transport Truck - Canopy", price: 4000000, ores: 116, honeycombs: 9999, photo: "ural4320_cover.png" },
+    { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, honeycombs: 9999, photo: "m998LUV.png" },
+    { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, honeycombs: 9999, photo: "m998LUVcanopy.png" },
+    { name: "M1025 Light Armored Vehicle", price: 250000, ores: 18, honeycombs: 9999, photo: "m1025.png" },
     { name: "VW Rolf", price: 800000, ores: 18, honeycombs: 9999, photo: "vwrolf.png" },
+    { name: "Pickup Truck", price: 500000, ores: 18, honeycombs: 9999, photo: "pickuptruck.png" },
     { name: "MI8-MT Transport Helicopter", price: 58000000, ores: 26, honeycombs: 9999, photo: "mi8-mt.png" },
     { name: "UH-1H Transport Helicopter", price: 47000000, ores: 26, honeycombs: 9999, photo: "uh-1h.png" }
 ];
@@ -67,8 +67,8 @@ function updatePrices() {
             <img src="${vehicle.image}" alt="${vehicle.name}">
             <div class="vehicle-info">
                 <h3>${vehicle.name}</h3>
-                <p>Adjusted Price: $${Math.round(adjustedPrice).toLocaleString()}</p>
-                <p>Ores Capacity: ${vehicle.ores}</p>
+                <p>Price: $${Math.round(adjustedPrice).toLocaleString()}</p>
+                <p>Ores: ${vehicle.ores}</p>
                 <p>Honeycombs: ${vehicle.honeycombs}</p>
             </div>
         `;
