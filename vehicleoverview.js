@@ -40,10 +40,10 @@ function renderVehicles() {
         const vehicleCard = document.createElement('div');
         vehicleCard.className = 'vehicle-card';
         vehicleCard.innerHTML = `
-            <img src="${vehicle.photo}" alt="${vehicle.name}">
+            <img src="${vehicle.image}" alt="${vehicle.name}">
             <div class="vehicle-info">
                 <h3>${vehicle.name}</h3>
-                <p>Price: $${vehicle.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                <p>Price: $${vehicle.price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 <p>Ores: ${vehicle.ores}</p>
                 <p>Honeycombs: ${vehicle.honeycombs}</p>
             </div>
