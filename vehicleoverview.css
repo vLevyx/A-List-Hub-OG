@@ -219,14 +219,14 @@ select#reputation::after {
 
 /* Back Arrow Styles */
 .back-arrow {
-    position: fixed;
+    position: absolute;
     top: 15px;
-    left: 40px;
-    font-size: 30px; /* Adjust the size of the bracket if needed */
+    left: 20px;
+    font-size: 30px;
     color: #333; /* Default color for light mode */
     text-decoration: none;
     z-index: 1000;
-    transition: transform 0.3s, color 0.3s; /* Add color transition */
+    transition: transform 0.3s, color 0.3s;
 }
 
 .back-arrow:hover {
