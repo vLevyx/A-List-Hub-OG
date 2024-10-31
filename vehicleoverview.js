@@ -10,6 +10,7 @@ const vehicles = [
     { name: "Ural-4320 Fuel Truck", price: 2800000, ores: 83, honeycombs: 9999, photo: "ural4320_fuel.png" },
     { name: "Ural-4320 Transport Truck", price: 2800000, ores: 100, honeycombs: 9999, photo: "ural4320transporttruck.png" },
     { name: "Ural-4320 Transport Truck - Canopy", price: 4000000, ores: 116, honeycombs: 9999, photo: "ural4320_cover.png" },
+    { name: "S1203 Minibus", price: 185000, ores: 0, honeycombs: 9999, photo: "uaz452offroad.png" },
     { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, honeycombs: 9999, photo: "m998LUV.png" },
     { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, honeycombs: 9999, photo: "m998LUVcanopy.png" },
     { name: "M1025 Light Armored Vehicle", price: 250000, ores: 18, honeycombs: 9999, photo: "m1025.png" },
@@ -39,10 +40,10 @@ function renderVehicles() {
         const vehicleCard = document.createElement('div');
         vehicleCard.className = 'vehicle-card';
         vehicleCard.innerHTML = `
-            <img src="${vehicle.image}" alt="${vehicle.name}">
+            <img src="${vehicle.photo}" alt="${vehicle.name}">
             <div class="vehicle-info">
                 <h3>${vehicle.name}</h3>
-                <p>Price: $${vehicle.price.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                <p>Price: $${vehicle.price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 <p>Ores: ${vehicle.ores}</p>
                 <p>Honeycombs: ${vehicle.honeycombs}</p>
             </div>
@@ -59,15 +60,14 @@ function updatePrices() {
     container.innerHTML = '';
 
     vehicles.forEach(vehicle => {
-        // Apply a discount for positive reputations (negative discount value) and an increase for negative (positive discount value)
-        const adjustedPrice = vehicle.price * (1 + (discount / 100));
+        const adjustedPrice = vehicle.price * (1 - (discount / 100));
         const vehicleCard = document.createElement('div');
         vehicleCard.className = 'vehicle-card';
         vehicleCard.innerHTML = `
-            <img src="${vehicle.image}" alt="${vehicle.name}">
+            <img src="${vehicle.photo}" alt="${vehicle.name}">
             <div class="vehicle-info">
                 <h3>${vehicle.name}</h3>
-                <p>Price: $${Math.round(adjustedPrice).toLocaleString()}</p>
+                <p>Price: $${adjustedPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                 <p>Ores: ${vehicle.ores}</p>
                 <p>Honeycombs: ${vehicle.honeycombs}</p>
             </div>
