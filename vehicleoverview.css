@@ -17,9 +17,20 @@ h1 {
     text-align: center;
 }
 
+/* Static underline effect using a pseudo-element */
+h1::after {
+    content: '';
+    display: block;
+    width: 70%; /* Width of the underline */
+    height: 2px; /* Height of the underline */
+    background: #007bff; /* Color of the underline */
+    margin: 5px auto; /* Center the underline and close to title */
+    border-radius: 5px; /* Rounded corners */
+}
+
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Center content in the header */
     align-items: center;
     width: 100%;
     max-width: 1200px;
@@ -38,17 +49,39 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 20px; /* Adds padding to the bottom */
 }
 
 /* Dark Mode Toggle Button */
-#mode-toggle {
-    font-size: 1.5rem;
+#darkModeButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     background: transparent;
     border: none;
     cursor: pointer;
     outline: none;
-    transition: color 0.3s;
     z-index: 1000;
+}
+
+#darkModeButton img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s, filter 0.3s;
+}
+
+#darkModeButton:hover img {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Light Mode - default icon color */
+#darkModeButton img {
+    filter: none;
+}
+
+/* Dark Mode - change icon to white */
+.dark-mode #darkModeButton img {
+    filter: brightness(0) invert(1); /* Turns the icon white for better visibility */
 }
 
 /* Modern Dropdown */
@@ -98,12 +131,6 @@ select#reputation::after {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none; /* Allow clicks through the arrow */
-}
-
-/* Style for dropdown wrapper to position arrow */
-.dropdown-wrapper {
-    position: relative; /* For absolute positioning of the arrow */
-    display: inline-block; /* Aligns properly with the label */
 }
 
 /* Vehicle Container */
@@ -188,4 +215,26 @@ select#reputation::after {
     .vehicle-card {
         width: calc(33.33% - 20px);
     }
+}
+
+/* Back Arrow Styles */
+.back-arrow {
+    position: fixed;
+    top: 15px;
+    left: 10px;
+    font-size: 30px; /* Adjust the size of the bracket if needed */
+    color: #333; /* Default color for light mode */
+    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.3s, color 0.3s; /* Add color transition */
+}
+
+.back-arrow:hover {
+    color: #007bff; /* Change color on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Dark Mode Styles for Back Arrow */
+.dark-mode .back-arrow {
+    color: #fff; /* Change the arrow color to white in dark mode */
 }

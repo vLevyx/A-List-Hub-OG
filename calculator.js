@@ -10,10 +10,10 @@ const itemsByCategory = {
     'Weapons':  ['AK-47', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
                 'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
 
-    'Magazines': ['9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '8rnd .45 ACP', '.50 AE 7rnd Mag', '12/70 7mm Buckshot', '4.6x40 40rnd Mag', 
-                '5.56x45mm 30rnd STANAG Mag', '7.62x39mm 30rnd Sa-58 Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', 
-                '5.56x45 30rnd AUG Mag', '.300 Blackout Mag', '7.62x51 FMJ 20rnd Mag', '5rnd .338 FMJ', '7.62x51 30rnd Mag', 
-                '5.56x45mm 200rnd M249 Belt', '7.62x54mmR 100rnd PK Belt'],
+    'Magazines': ['8rnd .45 ACP', '9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '.300 Blackout Mag', '.338 5rnd FMJ', '.50 AE 7rnd Mag', 
+                '12/70 7mm Buckshot', '4.6x40 40rnd Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 30rnd AUG Mag', 
+                '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ 20rnd Mag', 
+                '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd Mag', '7.62x54mmR 100rnd PK Belt'],
 
     'Attachments': ['ART II Scope', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope'],
 
@@ -66,22 +66,23 @@ const craftingLevels = {
     'Stegr AUG': 6,
     'SR-25 Rifle': 11,
     'SVD': 10,
+    '8rnd .45 ACP': 4,
     '9x18mm 8rnd PM Mag': 2,
     '9x19mm 15rnd M9 Mag': 3,
-    '8rnd .45 ACP': 4,
-    '.50 AE 7rnd Mag': 9999, // add to rest of code     \/ \/ \/ (need to add to itemComponents) \/ \/ \/
+    '.300 Blackout Mag': 7,
+    '.338 5rnd FMJ': 10,
+    '.50 AE 7rnd Mag': 9,
     '12/70 7mm Buckshot': 7,
-    '4.6x40 40rnd Mag': 9999, // add to rest of code
-    '5.56x45mm 30rnd STANAG Mag': 5,
-    '7.62x39mm 30rnd Sa-58 Mag': 9,
+    '4.6x40 40rnd Mag': 5,
     '5.45x39mm 30rnd AK Mag': 8,
     '5.45x39mm 45rnd RPK-74 Tracer Mag': 10,
-    '5.56x45 30rnd AUG Mag': 9999, // add to rest of code
-    '.300 Blackout Mag': 9999, // add to rest of code
-    '7.62x51 FMJ 20rnd Mag': 9999, // add to rest of code
-    '5rnd .338 FMJ': 9999, // add to rest of code
-    '7.62x51 30rnd Mag': 9999, // add to rest of code       /\ /\ /\ (need to add to itemComponents) /\ /\ /\
+    '5.56x45mm 30rnd AUG Mag': 6,
+    '5.56x45mm 30rnd STANAG Mag': 5,
     '5.56x45mm 200rnd M249 Belt': 11,
+    '7.62x39mm 30rnd Sa-58 Mag': 9,
+    '7.62x51mm FMJ 20rnd Mag': 9999, // add to item resources
+    '7.62x51mm 30rnd Mag': 11,
+    'SR25 7.62x51mm 20rnd Mag': 9999, // add to item resources
     '7.62x54mmR 100rnd PK Belt': 12,
     'ART II Scope': 7,
     'Carry Handle Red-Dot-Sight': 7,
@@ -312,11 +313,27 @@ const itemComponents = {
         }
 },
     'Magazines': {
+        '.300 Blackout Mag': { 
+            'Non-HQ': { 'Ammo': 2 },
+            'HQ': {}
+        },
+        '.338 5rnd FMJ': { 
+            'Non-HQ': { 'Ammo': 2 },
+            'HQ': {}
+        },
+        '.50 AE 7rnd Mag': {
+            'Non-HQ': {},
+            'HQ': { 'Ammo (HQ)': 2 }
+        },
         '12/70 7mm Buckshot': {
             'Non-HQ': { 'Ammo': 1 },
             'HQ': {}
         },
         '30rnd 9x19 Mag': {
+            'Non-HQ': { 'Ammo': 1 },
+            'HQ': {}
+        },
+        '4.6x40 40rnd Mag': {
             'Non-HQ': { 'Ammo': 1 },
             'HQ': {}
         },
@@ -330,7 +347,15 @@ const itemComponents = {
         },
         '7.62x51mm 20rnd M14 Mag': {
             'Non-HQ': { 'Ammo': 1 },
-            'HQ': {}
+            'HQ': {} 
+        },
+        '7.62x51mm 30rnd Mag': {
+            'Non-HQ': { 'Ammo': 1 },
+            'HQ': {} 
+        },
+        'SR25 7.62x51mm 20rnd Mag': {  // add the ammo calcuation needed
+            'Non-HQ': {},
+            'HQ': {} 
         },
         '7.62x54mmR 10rnd SVD Mag': {
             'Non-HQ': {},
@@ -341,8 +366,8 @@ const itemComponents = {
             'HQ': {}
         },
         '9x18mm 8rnd PM Mag': {
-                'Non-HQ': { 'Ammo': 1 },
-                'HQ': {}
+            'Non-HQ': { 'Ammo': 1 },
+            'HQ': {}
         },
         '9x19mm 15rnd M9 Mag': {
             'Non-HQ': { 'Ammo': 1 },
@@ -356,6 +381,10 @@ const itemComponents = {
             'Non-HQ': {},
             'HQ': { 'Ammo (HQ)': 15 }
         },
+        '5.56x45mm 30rnd AUG Mag': {
+            'Non-HQ': { 'Ammo': 1 },
+            'HQ': {}
+        },
         '5.56x45mm 30rnd STANAG Mag': {
             'Non-HQ': { 'Ammo': 1 },
             'HQ': {}
@@ -367,6 +396,10 @@ const itemComponents = {
         '5.45x39mm 45rnd RPK-74 Tracer Mag': {
             'Non-HQ': {},
             'HQ': { 'Ammo (HQ)': 1 }
+        },
+        '7.62x51mm FMJ 20rnd Mag': {  // fix this calcuation when you get blueprint
+            'Non-HQ': {},
+            'HQ': {}  
         },
         '7.62x54mmR 100rnd PK Belt': {
             'Non-HQ': {},
