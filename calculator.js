@@ -499,7 +499,7 @@ const itemComponents = {
         },
         'Ural (Device)': {
             'Non-HQ': {},
-            'HQ': { 'Mechanical Component (HQ)': 29, 'Interior Part (HQ)': 27, 'Engine Part (HQ)': 18 }
+            'HQ': { 'Mechanical Component (HQ)': 29, 'Interior Part (HQ)': 26, 'Engine Part (HQ)': 18 }
         },
         'Pickup-Truck': {
             'Non-HQ': { 'Mechanical Component': 19, 'Interior Part': 11, 'Engine Part': 19 },
