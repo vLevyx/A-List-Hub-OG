@@ -4,7 +4,7 @@ const vehicles = [
     { name: "M151A2 Off-Road - Open Top", price: 25000, ores: 16, photo: "m151a2offroad-opentop.png" },
     { name: "M998 Light Utility Vehicle", price: 150000, ores: 18, photo: "m998LUV.png" },
     { name: "M998 Light Utility Vehicle - Canopy", price: 175000, ores: 18, photo: "m998LUVcanopy.png" },
-    { name: "M923A1 Fuel Truck", price: 1000000, ores: 53, photo: "m923a1_fuel.png" },
+    { name: "M923A1 Fuel Truck", price: 1200000, ores: 53, photo: "m923a1_fuel.png" },
     { name: "M923A1 Transport Truck", price: 800000, ores: 50, honeycombs: 9999, photo: "m923a1.png" },
     { name: "M923A1 Transport Truck - Canopy", price: 1800000, ores: 83, photo: "m923a1_cover.png" },
     { name: "Pickup Truck", price: 500000, ores: 18, honeycombs: 9999, photo: "pickuptruck.png" },
@@ -25,10 +25,10 @@ const discountRates = {
     neutral: 0,
     positive1: -5.5,
     positive2: -5.5,
-    positive3: -14.29,
-    negative1: 5.5,
-    negative2: 5.5,
-    negative3: 5.0
+    positive3: -14.31,
+    negative1: 25.0,
+    negative2: 28.0,
+    negative3: 53.0
 };
 
 function renderVehicles() {
