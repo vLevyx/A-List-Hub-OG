@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { weapon: 'M16A2 - AUTO', ammo: '5.56x45mm 30rnd STANAG Mag', type: 'assault' },
     { weapon: 'M416', ammo: '5.56x45mm 30rnd STANAG Mag', type: 'assault' },
     { weapon: 'SA-58P', ammo: '7.62x39mm 30rnd Sa-58 Mag', type: 'marksman' },
-    { weapon: 'Scar-H', ammo: '7.62x51mm FMJ 20rnd Mag', type: 'assault' },    
+    { weapon: 'Scar-H', ammo: '7.62x51mm FMJ', type: 'assault' },    
 
     // Machine Guns
     { weapon: 'RPK-74', ammo: '5.45x39mm 45rnd RPK-74 Tracer Mag', type: 'machine-gun' },
