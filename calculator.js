@@ -30,7 +30,7 @@ const itemsByCategory = {
                 'Jacket', 'Jeans', 'Jeans (Colored)', 'KLMK Coveralls', 'Knit Cap', 'Kolobok Backpack', 'M70 Backpack', 'M70 Cap', 'M70 Parka',
                 'M70 Trousers', 'M88 Field Cap', 'M88 Jacket', 'M88 Jacket - Rolled-up', 'M88 Trousers', 'Mask (Medical)', 'Mask (Latex)', 'Mask (Ski)', 'Officer\'s Cap',
                 'Panamka', 'Paper Bag', 'Polo', 'Pullover', 'Robe', 'Runner Shoe', 'Sneaker', 'Soviet Combat Boots',
-                'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
+                'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Suit Jacket', 'Suit Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
                 'Veshmeshok Backpack', 'Wool Hat'],
 
 'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
@@ -168,6 +168,8 @@ const craftingLevels = {
     'Soviet Combat Boots': 1,
     'Soviet Pilot Jacket': 6,
     'Soviet Pilot Pants': 6,
+    'Suit Jacket': 7,
+    'Suit Pants': 7,
     'Sweater': 3,
     'Sweat Pants': 4,
     'TShirt': 4,
@@ -757,6 +759,14 @@ const itemComponents = {
             },
             'Soviet Pilot Pants': {
                 'Non-HQ': { 'Cloth': 1 },
+                'HQ': {}
+            },
+            'Suit Jacket': {
+                'Non-HQ': { 'Cloth': 61 },
+                'HQ': {}
+            },
+            'Suit Pants': {
+                'Non-HQ': { 'Cloth': 50 },
                 'HQ': {}
             },
             'Sweater': {
