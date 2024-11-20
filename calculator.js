@@ -7,13 +7,13 @@ const componentsList = ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered 
 const hqComponentsList = ['Component (HQ)', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
 
 const itemsByCategory = {
-    'Weapons':  ['AK-47', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
+    'Weapons':  ['AK-47', 'AKS-47U', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
                 'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
 
     'Magazines': ['8rnd .45 ACP', '9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '.300 Blackout Mag', '.338 5rnd FMJ', '.50 AE 7rnd Mag', 
                 '12/70 7mm Buckshot', '4.6x40 40rnd Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 30rnd AUG Mag', 
                 '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ', '7.62x51mm M80 Mag', 
-                '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd', '7.62x54mmR 100rnd PK Belt'],
+                '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd', '7.62x54mmR 100rnd PK Belt', 'SPEAR 6.8x51 25rnd'],
 
     'Attachments': ['ART II Scope', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope'],
 
@@ -44,6 +44,7 @@ const itemsByCategory = {
 // Crafting levels for each item
 const craftingLevels = {
     'AK-47': 8,
+    'AKS-47U': 8,
     'Colt 1911': 10,
     'Desert Eagle': 10,
     'M16A2': 5,
@@ -85,6 +86,7 @@ const craftingLevels = {
     '7.62x51mm 30rnd Mag': 11,
     'SR25 7.62x51mm 20rnd': 11,
     '7.62x54mmR 100rnd PK Belt': 12,
+    'SPEAR 6.8x51 25rnd': 9,
     'ART II Scope': 7,
     'Carry Handle Red-Dot-Sight': 7,
     'PSO-1 Scope': 7,
@@ -224,7 +226,11 @@ const itemComponents = {
     'Weapons': {
         'AK-47': {
             'Non-HQ': {},
-            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 }
+            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 } 
+        },
+        'AKS-47U': {
+            'Non-HQ': {},
+            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 } 
         },
         'Colt 1911': {
             'Non-HQ': { 'Weapon Part': 5, 'Stabilizer': 3, 'Attachment Part': 3 },
@@ -409,6 +415,10 @@ const itemComponents = {
             'HQ': { 'Ammo (HQ)': 15 }
         },
         '7.62x54mmR 10rnd SVD Mag': {
+            'Non-HQ': {},
+            'HQ': { 'Ammo (HQ)': 1 }
+        },
+        'SPEAR 6.8x51 25rnd': {
             'Non-HQ': {},
             'HQ': { 'Ammo (HQ)': 1 }
         }
@@ -978,8 +988,8 @@ function calculateResources() {
             // Initialize breakdown for this HQ component
             hqComponentBreakdown[hqComponent] = hqComponentBreakdown[hqComponent] || {};
 
-            // Step 2: Break down HQ components into non-HQ components (skip "Special Rotor")
-            if (hqComponent !== 'Special Rotor' && componentResources[hqComponent]) {
+            // Step 2: Break down HQ components into non-HQ components (skip "Special Rotor and "Special Gun Barrel")
+            if (hqComponent !== 'Special Rotor' && hqComponent !== 'Special Gun Barrel' && componentResources[hqComponent]) {
                 for (const nonHQComponent in componentResources[hqComponent]) {
                     const nonHQQuantity = componentResources[hqComponent][nonHQComponent] * hqQuantity;
 
@@ -1060,7 +1070,7 @@ function displayResults(totalResources, totalComponents, totalHQComponents, hqCo
     // Display non-HQ components needed
     resultHTML += '<h2>Components needed:</h2><ul>';
     for (const component in totalComponents) {
-        if (!resourcesList.includes(component) && component !== 'Special Rotor') {
+        if (!resourcesList.includes(component) && component !== 'Special Rotor' && component !== 'Special Gun Barrel') {
             resultHTML += `<li>${component}: ${totalComponents[component]}</li>`;
         }
     }

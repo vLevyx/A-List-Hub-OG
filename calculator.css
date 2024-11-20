@@ -46,7 +46,7 @@ body {
 
 /* Dark Mode Styles for Crafting Level */
 body.dark-mode .crafting-level {
-    background-color: #555; /* Darker background */
+    background-color: #333; /* Darker background */
     color: #e0e0e0; /* Lighter text color */
     border-color: #777; /* Darker border color */
 }
@@ -261,7 +261,7 @@ input[type="number"]:focus {
 }
 
 input[type="number"].dark-mode {
-    background-color: #555;
+    background-color: #333;
     color: #e0e0e0;
     border-color: #777;
 }
@@ -293,16 +293,16 @@ body.dark-mode h1 {
 }
 
 body.dark-mode {
-    background-color: #333;
+    background-color: #171717;
 }
 
 .container.dark-mode {
-    background-color: #444;
+    background-color: #222;
     color: #e0e0e0; /* Change text color to off-white */
 }
 
 .select-box.dark-mode {
-    background-color: #555;
+    background-color: #333;
     color: #e0e0e0;
     border-color: #777;
 }
@@ -313,7 +313,7 @@ body.dark-mode {
 }
 
 .result.dark-mode {
-    background-color: #555;
+    background-color: #333;
     color: #e0e0e0; /* Change text color to off-white */
 }
 
@@ -372,14 +372,14 @@ body.dark-mode {
 }
 
 #breakdownSection h3 {
-    color: #555; /* Darker shade for headings in light mode */
+    color: #333; /* Darker shade for headings in light mode */
     margin-top: 10px;
     font-weight: bold;
 }
 
 /* Dark mode styles */
 .dark-mode #breakdownSection {
-    background-color: #666; /* Dark background for contrast in dark mode */
+    background-color: #333; /* Dark background for contrast in dark mode */
     border: 1px solid #444; /* Darker border to match the dark theme */
     color: #f1f1f1; /* Light text color for readability in dark mode */
 }
