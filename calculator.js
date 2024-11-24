@@ -23,10 +23,10 @@ const itemsByCategory = {
     'Vests':    ['6B2 Vest', '6B3 Vest', 'M69 Vest', 'PASGT Vest'], 
 
     'Helmets':  ['PASGT Helmet', 'PASGT Helmet - Camouflaged', 'PASGT Helmet - Camouflaged Netting', 'SPH-4 Helmet', 'SSh-68 Helmet', 
-                'SSh-68 Helmet - Camouflaged', 'SSh-68 Helmet - Cover', 'SSh-68 Helmet - Netting', 'ZSh-5 Helmet'], 
+                'SSh-68 Helmet - Camouflaged', 'SSh-68 Helmet - Cover', 'SSh-68 Helmet - KZS', 'SSh-68 Helmet - Netting', 'ZSh-5 Helmet'], 
 
     'Clothes':  ['ALICE Medium Backpack', 'Bandana', 'Balaclava', 'BDU Blouse', 'BDU Blouse - Rolled-up', 'BDU Trousers', 'Beanie', 'Boonie', 'Cargo Pants', 'Cargo Pants (Colored)',
-                'Cardigan', 'Classic Shoe', 'CWU-27 Pilot Coveralls', 'Dress', 'Fedora', 'Fisher Hat', 'Flat Cap', 'Half Mask', 'Hunting Vest',
+                'Cardigan', 'Classic Shoe', 'CWU-27 Pilot Coveralls', 'Dress', 'Fedora', 'Fisher Hat', 'Flat Cap', 'Half Mask', 'Hunting Vest', 'IIFS Large Combat Field Pack',
                 'Jacket', 'Jeans', 'Jeans (Colored)', 'KLMK Coveralls', 'Knit Cap', 'Kolobok Backpack', 'M70 Backpack', 'M70 Cap', 'M70 Parka',
                 'M70 Trousers', 'M88 Field Cap', 'M88 Jacket', 'M88 Jacket - Rolled-up', 'M88 Trousers', 'Mask (Medical)', 'Mask (Latex)', 'Mask (Ski)', 'Officer\'s Cap',
                 'Panamka', 'Paper Bag', 'Polo', 'Pullover', 'Robe', 'Runner Shoe', 'Sneaker', 'Soviet Combat Boots',
@@ -122,6 +122,7 @@ const craftingLevels = {
     'SSh-68 Helmet': 4,
     'SSh-68 Helmet - Camouflaged': 4,
     'SSh-68 Helmet - Cover': 4,
+    'SSh-68 Helmet - KZS': 4,
     'SSh-68 Helmet - Netting': 4,
     'ZSh-5 Helmet': 6,
     'ALICE Medium Backpack': 4,
@@ -143,6 +144,7 @@ const craftingLevels = {
     'Flat Cap': 3,
     'Half Mask': 3,
     'Hunting Vest': 3,
+    'IIFS Large Combat Field Pack': 7,
     'Jacket': 4,
     'Jeans': 3,
     'Jeans (Colored)': 4,
@@ -508,7 +510,7 @@ const itemComponents = {
         },
         'Ural-4320 Transport Truck - Canopy': {
             'Non-HQ': {},
-            'HQ': { 'Mechanical Component (HQ)': 4, 'Interior Part (HQ)': 3, 'Engine Part (HQ)': 2 }
+            'HQ': { 'Mechanical Component (HQ)': 5, 'Interior Part (HQ)': 5, 'Engine Part (HQ)': 3 }
         },
         'Ural (Device)': {
             'Non-HQ': {},
@@ -571,6 +573,10 @@ const itemComponents = {
             'HQ': {}
         },
         'SSh-68 Helmet - Cover': {
+            'Non-HQ': { 'Iron Plate': 2, 'Cloth': 2 },
+            'HQ': {}
+        },
+        'SSh-68 Helmet - KZS': {
             'Non-HQ': { 'Iron Plate': 2, 'Cloth': 2 },
             'HQ': {}
         },
@@ -656,8 +662,12 @@ const itemComponents = {
                 'Non-HQ': { 'Cloth': 1 },
                 'HQ': {}
             },
-            'Hunting Vest': {
+            'Hunting Vest': { 
                 'Non-HQ': { 'Cloth': 1 },
+                'HQ': {}
+            },
+            'IIFS Large Combat Field Pack': { 
+                'Non-HQ': { 'Cloth': 32 },
                 'HQ': {}
             },
             'Jacket': {
