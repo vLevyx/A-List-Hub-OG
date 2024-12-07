@@ -1,0 +1,192 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212 url('https://images.squarespace-cdn.com/content/v1/60e4932d0b42834867e420e5/38e98d33-123e-4611-b125-e4d175f70b6e/Topographic+Map-grey.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    color: #d3d3d3; /* Softer off-white text */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(34, 34, 34, 0.95); /* Softer dark grey background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Reduced shadow intensity */
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.input-section label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #c7c7c7; /* Slightly softer label color */
+}
+
+.input-section input[type="datetime-local"] {
+    font-size: 1rem;
+    padding: 8px;
+    border: 2px solid #666; /* Softer border color */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    outline: none;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-section input[type="datetime-local"]:hover {
+    border-color: #888;
+    box-shadow: 0 2px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Style the calendar icon (webkit and mozilla for cross-browser support) */
+.input-section input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    background-color: #4591f7; /* Same blue as the copy button */
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.input-section input[type="datetime-local"]::-moz-calendar-picker-indicator {
+    background-color: #4591f7;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Results Section */
+.results {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timestamp-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2b2b2b; /* Softer dark background for timestamps */
+    border-radius: 5px;
+    border: 1px solid #444; /* Softer border color */
+    padding: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+/* Unix Timestamp Value Box - No Hover Effect */
+.timestamp-line:first-child code {
+    background: #444;
+    color: #e0e0e0;
+    cursor: default;
+    transition: none; /* Removes hover effect */
+}
+
+/* <t:unix_timestamp:format> Hover Effect */
+.timestamp-line code {
+    font-family: monospace;
+    font-size: 0.9rem;
+    background: #444; /* Default background for code */
+    color: #e0e0e0; /* Default text color */
+    padding: 4px 8px;
+    border-radius: 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.timestamp-line code:hover {
+    background-color: #3a3a3a; /* Slightly lighter background on hover */
+}
+
+/* Timestamp Preview */
+.timestamp-preview {
+    color: #e0e0e0;
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+}
+
+/* Copy Button */
+.copy-btn {
+    background: #4591f7; /* Softer blue */
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.copy-btn:hover {
+    background: #366db3; /* Darker hover color */
+}
+
+/* Copied Notification */
+.copied-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.copied-notification.show {
+    opacity: 1;
+}
+
+/* Footer Notice */
+.notice {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .timestamp-line {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timestamp-line code {
+        margin-bottom: 5px;
+    }
+
+    .copy-btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+}

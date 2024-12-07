@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unix Timestamp Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Unix Timestamp Converter</h1>
+        </header>
+
+        <div class="input-section">
+    <label for="datetime-input">Select Date &amp; Time:</label>
+    <input 
+        type="datetime-local" 
+        id="datetime-input" 
+        step="300" 
+        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" 
+        title="Please enter a valid date and time (YYYY-MM-DDTHH:MM)." 
+        required
+    />
+</div>
+
+        <div class="results" id="results"></div>
+
+        <p class="notice">Adjust the date/time above to see the updated timestamps. Click a timestamp or the "Copy" button to copy it.</p>
+    </div>
+
+    <!-- Copied Notification -->
+    <div id="copied-notification" class="copied-notification">Copied!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
