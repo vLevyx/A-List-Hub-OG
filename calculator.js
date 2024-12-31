@@ -2,9 +2,9 @@ document.getElementById('categories').addEventListener('change', populateItems);
 document.getElementById('calculateButton').addEventListener('click', calculateResources);
 
 // Define the lists of resources, components, and HQ components
-const resourcesList = ['Fabric', 'Polyester', 'Iron Ingot', 'Iron Plate', 'Copper Ingot', 'Glass', 'Component', 'Charcoal', 'Gold Ingot', 'Silver Ingot', 'Petrol', 'Wooden Plank'];
-const componentsList = ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor'];
-const hqComponentsList = ['Component (HQ)', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
+const resourcesList = ['Fabric', 'Polyester', 'Iron Ingot', 'Copper Ingot', 'Glass', 'Component', 'Charcoal', 'Gold Ingot', 'Silver Ingot', 'Petrol', 'Wooden Plank'];
+const componentsList = ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor'];
+const hqComponentsList = ['Component (HQ)', 'Kevlar', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
 
 const itemsByCategory = {
     'Weapons':  ['AK-47', 'AKS-47U', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
