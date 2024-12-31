@@ -2,8 +2,8 @@ document.getElementById('categories').addEventListener('change', populateItems);
 document.getElementById('calculateButton').addEventListener('click', calculateResources);
 
 // Define the lists of resources, components, and HQ components
-const resourcesList = ['Fabric', 'Polyester', 'Iron Ingot', 'Iron Plate', 'Copper Ingot', 'Glass', 'Component', 'Charcoal', 'Gold Ingot', 'Silver Ingot', 'Petrol', 'Wooden Plank'];
-const componentsList = ['Cloth', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor'];
+const resourcesList = ['Fabric', 'Polyester', 'Iron Ingot', 'Copper Ingot', 'Glass', 'Component', 'Charcoal', 'Gold Ingot', 'Silver Ingot', 'Petrol', 'Wooden Plank'];
+const componentsList = ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor'];
 const hqComponentsList = ['Component (HQ)', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
 
 const itemsByCategory = {
@@ -874,7 +874,7 @@ const itemComponents = {
                 'HQ': {}
             },
             'Kevlar': {
-                'Resources': { 'Iron Plate': 1, 'Iron Ingot': 3 },
+                'Resources': { 'Iron Plate': 1, 'Iron Ingot': 20 },
                 'Non-HQ': {},
                 'HQ': {}
             },
@@ -933,7 +933,7 @@ const itemComponents = {
 
 const componentResources = {
     'Cloth': { 'Fabric': 1, 'Polyester': 1 },
-    'Iron Plate': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
+    'Iron Plate': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 15 },
     'Kevlar': { 'Iron Plate': 1, 'Iron Ingot': 20 },
     'Component': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
     'Tempered Glass': { 'Glass': 2, 'Polyester': 1 },
