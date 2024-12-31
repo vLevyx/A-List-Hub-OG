@@ -543,7 +543,7 @@ const itemComponents = {
             'HQ': {}
         },
         'PASGT Vest': {
-            'Non-HQ': {},
+            'Non-HQ': {'Iron Plate': 10, 'Cloth': 14 },
             'HQ': {}
         }
     },
@@ -934,7 +934,7 @@ const itemComponents = {
 const componentResources = {
     'Cloth': { 'Fabric': 1, 'Polyester': 1 },
     'Iron Plate': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
-    'Kevlar': { 'Iron Plate': 1, 'Iron Ingot': 3 },
+    'Kevlar': { 'Iron Plate': 1, 'Iron Ingot': 20 },
     'Component': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
     'Tempered Glass': { 'Glass': 2, 'Polyester': 1 },
     'Weapon Part': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
@@ -1095,7 +1095,7 @@ function displayResults(totalResources, totalComponents, totalHQComponents, hqCo
         resultHTML += '</ul>';
     }
 
-    // Breakdown section with its own container
+    // Breakdown section
     resultHTML += '<div id="breakdownSection" class="hidden">';
 
     // Display breakdown of resources by HQ component
