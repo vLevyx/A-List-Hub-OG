@@ -25,7 +25,7 @@ const discountRates = {
     neutral: 0,
     positive1: -5.5,
     positive2: -5.5,
-    positive3: -14.31,
+    positive3: -15.31,
     negative1: 25.0,
     negative2: 28.0,
     negative3: 53.0
