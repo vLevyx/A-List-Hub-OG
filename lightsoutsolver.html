@@ -3,27 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Lights Out Solver</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; text-align: center; background: #111; color: #eee; }
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #111;
+      color: #eee;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: clamp(24px, 4vw, 36px);
+      margin: 20px 0;
+    }
+
     .container {
       display: flex;
       justify-content: center;
-      margin-top: 30px;
+      margin-top: 10px;
     }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 60px);
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
+      width: clamp(180px, 60vw, 300px);
+      margin: 0 auto;
     }
+
     .cell {
-      width: 60px; height: 60px;
-      background-color: gold; color: black;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; border: 2px solid #555;
-      cursor: pointer; user-select: none;
+      aspect-ratio: 1 / 1;
+      background-color: gold;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(16px, 4vw, 22px);
+      border: 2px solid #555;
+      cursor: pointer;
+      user-select: none;
       transition: box-shadow 0.3s;
     }
-    .cell.off { background-color: #333; color: white; }
+
+    .cell.off {
+      background-color: #333;
+      color: white;
+    }
+
     .highlight {
       box-shadow: 0 0 15px 5px white;
     }
@@ -32,29 +60,43 @@
       display: flex;
       justify-content: center;
       gap: 12px;
-      margin-top: 20px;
+      margin: 16px auto;
+      flex-wrap: wrap;
     }
 
     button {
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: clamp(14px, 2vw, 16px);
       cursor: pointer;
-    }
-
-    .solution-title { margin-top: 30px; font-size: 18px; }
-    .solution-grid {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .solution-box {
-      width: 40px; height: 40px;
+      border-radius: 6px;
+      border: none;
       background-color: #444;
       color: white;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 16px; border: 2px solid #999;
+    }
+
+    .solution-title {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .solution-grid {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .solution-box {
+      width: clamp(35px, 10vw, 45px);
+      height: clamp(35px, 10vw, 45px);
+      background-color: #444;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(14px, 3.5vw, 20px);
+      border: 2px solid #999;
     }
   </style>
 </head>
@@ -64,7 +106,7 @@
 
   <div class="container">
     <div class="grid" id="grid">
-      <!-- Cells inserted via JS -->
+      <!-- Tiles inserted here -->
     </div>
   </div>
 
@@ -135,9 +177,7 @@
     }
 
     function resetGrid() {
-      cells.forEach(cell => {
-        cell.classList.remove('off');
-      });
+      cells.forEach(cell => cell.classList.remove('off', 'highlight'));
       document.getElementById('solution-title').textContent = '';
       document.getElementById('solution-grid').innerHTML = '';
     }
@@ -145,7 +185,6 @@
     function displaySolution(steps) {
       const titleEl = document.getElementById('solution-title');
       const gridEl = document.getElementById('solution-grid');
-
       gridEl.innerHTML = '';
       if (steps.length === 0) {
         titleEl.textContent = "No solution found.";
@@ -166,7 +205,7 @@
         const index = step - 1;
         const cell = cells[index];
         cell.classList.add('highlight');
-        await new Promise(r => setTimeout(r, 350));
+        await new Promise(r => setTimeout(r, 300));
         cell.classList.remove('highlight');
       }
     }
