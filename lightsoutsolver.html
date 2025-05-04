@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lights Out Solver</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; background: #111; color: #eee; }
+    .container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 8px;
+    }
+    .cell {
+      width: 60px; height: 60px;
+      background-color: gold; color: black;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; border: 2px solid #555;
+      cursor: pointer; user-select: none;
+      transition: box-shadow 0.3s;
+    }
+    .cell.off { background-color: #333; color: white; }
+    .highlight {
+      box-shadow: 0 0 15px 5px white;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .solution-title { margin-top: 30px; font-size: 18px; }
+    .solution-grid {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .solution-box {
+      width: 40px; height: 40px;
+      background-color: #444;
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; border: 2px solid #999;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Lights Out Solver</h1>
+
+  <div class="container">
+    <div class="grid" id="grid">
+      <!-- Cells inserted via JS -->
+    </div>
+  </div>
+
+  <div class="button-row">
+    <button onclick="solve()">Solve</button>
+    <button onclick="resetGrid()">Reset</button>
+  </div>
+
+  <div class="solution-title" id="solution-title"></div>
+  <div class="solution-grid" id="solution-grid"></div>
+
+  <script>
+    const toggleMap = {
+      1: [0, 1, 3],
+      2: [0, 1, 2, 4],
+      3: [1, 2, 5],
+      4: [0, 3, 4, 6],
+      5: [1, 3, 4, 5, 7],
+      6: [2, 4, 5, 8],
+      7: [3, 6, 7],
+      8: [4, 6, 7, 8],
+      9: [5, 7, 8]
+    };
+
+    const gridEl = document.getElementById('grid');
+    const cells = [];
+
+    for (let i = 0; i < 9; i++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.textContent = i + 1;
+      cell.onclick = () => {
+        cell.classList.toggle('off');
+      };
+      cells.push(cell);
+      gridEl.appendChild(cell);
+    }
+
+    function getTargetState() {
+      return cells.map(cell => cell.classList.contains('off') ? 0 : 1);
+    }
+
+    function applyPress(grid, presses) {
+      const newGrid = [...grid];
+      for (let p of presses) {
+        for (let idx of toggleMap[p]) {
+          newGrid[idx] ^= 1;
+        }
+      }
+      return newGrid;
+    }
+
+    function solve() {
+      const target = getTargetState();
+      for (let n = 0; n <= 9; n++) {
+        const combos = combinations([1,2,3,4,5,6,7,8,9], n);
+        for (let combo of combos) {
+          const result = applyPress(Array(9).fill(1), combo);
+          if (arraysEqual(result, target)) {
+            displaySolution(combo);
+            animatePresses(combo);
+            return;
+          }
+        }
+      }
+      displaySolution([]);
+      document.getElementById('solution-title').textContent = "No solution found.";
+    }
+
+    function resetGrid() {
+      cells.forEach(cell => {
+        cell.classList.remove('off');
+      });
+      document.getElementById('solution-title').textContent = '';
+      document.getElementById('solution-grid').innerHTML = '';
+    }
+
+    function displaySolution(steps) {
+      const titleEl = document.getElementById('solution-title');
+      const gridEl = document.getElementById('solution-grid');
+
+      gridEl.innerHTML = '';
+      if (steps.length === 0) {
+        titleEl.textContent = "No solution found.";
+        return;
+      }
+
+      titleEl.textContent = "Press these tiles:";
+      for (let step of steps) {
+        const box = document.createElement('div');
+        box.className = 'solution-box';
+        box.textContent = step;
+        gridEl.appendChild(box);
+      }
+    }
+
+    async function animatePresses(steps) {
+      for (const step of steps) {
+        const index = step - 1;
+        const cell = cells[index];
+        cell.classList.add('highlight');
+        await new Promise(r => setTimeout(r, 350));
+        cell.classList.remove('highlight');
+      }
+    }
+
+    function combinations(arr, k) {
+      const res = [];
+      const helper = (start, comb) => {
+        if (comb.length === k) {
+          res.push([...comb]);
+          return;
+        }
+        for (let i = start; i < arr.length; i++) {
+          comb.push(arr[i]);
+          helper(i + 1, comb);
+          comb.pop();
+        }
+      };
+      helper(0, []);
+      return res;
+    }
+
+    function arraysEqual(a, b) {
+      return a.every((v, i) => v === b[i]);
+    }
+  </script>
+
+</body>
+</html>
