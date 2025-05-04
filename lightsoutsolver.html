@@ -98,23 +98,83 @@
       font-size: clamp(14px, 3.5vw, 20px);
       border: 2px solid #999;
     }
+
+    .help-button {
+      position: fixed;
+      top: 12px;
+      right: 16px;
+      font-size: 24px;
+      background: transparent;
+      border: none;
+      color: white;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .help-popup {
+      position: fixed;
+      top: 50px;
+      right: 16px;
+      background: #222;
+      color: white;
+      padding: 16px;
+      border: 1px solid #666;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.5;
+      display: none;
+      max-width: 300px;
+      z-index: 1001;
+    }
+
+    .help-popup.show {
+      display: block;
+    }
+
+    .help-popup .close {
+      text-align: right;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #bbb;
+      cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      .help-popup {
+        left: 20px;
+        right: 20px;
+        max-width: unset;
+      }
+    }
   </style>
 </head>
 <body>
 
   <h1>Lights Out Solver</h1>
 
-  <div class="container">
-    <div class="grid" id="grid">
-      <!-- Tiles inserted here -->
-    </div>
+  <!-- Help button and popup -->
+  <button class="help-button" onclick="toggleHelp()">❓</button>
+  <div class="help-popup" id="helpPopup">
+    <strong>How to Use:</strong><br><br>
+    This Lights Out Solver is used for <strong>fuel station robberies</strong>.<br><br>
+    When robbing, you'll see a Lights Out puzzle when opening crates. You have <strong>3 seconds</strong> to view it before it resets.<br><br>
+    <strong>Use this tool on a second device</strong> (like a phone or tablet). Tap the boxes on this grid to match the <strong>[OFF]</strong> light squares you see in-game.<br><br>
+    Tap “Solve” to view the solution. Then quickly select the correct boxes in-game in the shown order to complete the puzzle.<br><br>
+    <div class="close" onclick="toggleHelp()">✖ Close</div>
   </div>
 
+  <!-- Puzzle grid -->
+  <div class="container">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <!-- Action buttons -->
   <div class="button-row">
     <button onclick="solve()">Solve</button>
     <button onclick="resetGrid()">Reset</button>
   </div>
 
+  <!-- Solution -->
   <div class="solution-title" id="solution-title"></div>
   <div class="solution-grid" id="solution-grid"></div>
 
@@ -186,6 +246,7 @@
       const titleEl = document.getElementById('solution-title');
       const gridEl = document.getElementById('solution-grid');
       gridEl.innerHTML = '';
+
       if (steps.length === 0) {
         titleEl.textContent = "No solution found.";
         return;
@@ -229,6 +290,11 @@
 
     function arraysEqual(a, b) {
       return a.every((v, i) => v === b[i]);
+    }
+
+    function toggleHelp() {
+      const popup = document.getElementById('helpPopup');
+      popup.classList.toggle('show');
     }
   </script>
 
