@@ -7,18 +7,19 @@ const componentsList = ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'W
 const hqComponentsList = ['Component (HQ)', 'Kevlar', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
 
 const itemsByCategory = {
-    'Weapons':  ['AK-47', 'AKS-47U', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
+    'Weapons':  ['AK-47', 'AKS-47U', 'CheyTac M200 Intervention', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP 43 1C', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
                 'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
 
     'Magazines': ['8rnd .45 ACP', '9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '.300 Blackout Mag', '.338 5rnd FMJ', '.50 AE 7rnd Mag', 
                 '12/70 7mm Buckshot', '4.6x40 40rnd Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 30rnd AUG Mag', 
-                '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ', '7.62x51mm M80 Mag', 
+                '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7Rnd M200 Magazine', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ', '7.62x51mm M80 Mag', 
                 '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd', '7.62x54mmR 100rnd PK Belt', 'SPEAR 6.8x51 25rnd'],
 
-    'Attachments': ['ART II Scope', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope'],
+    'Attachments': ['ART II Scope', 'A2 Flash Hider', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope', '6.8x51mm FlashHider', '6P26 Flash Hider', 
+                    '6P20 Muzzle Brake', '7.62x51mm FlashHider'],
 
     'Vehicles': ['M1025 Light Armoured Vehicle', 'M151A2 Off-Road', 'M151A2 Off-Road Open Top', 'M923A1 Fuel Truck', 'M923A1 Transport Truck', 'M923A1 Transport Truck - Canopy', 
-                'M998 Light Utility Vehicle', 'M998 Light Utility Vehicle - Canopy', 'Mi-8MT Transport Helicopter', 'Pickup-Truck', 'S1203 Minibus', 'UAZ-452 Off-road', 'UAZ-469 Off-road', 'UAZ-469 Off-road - Open Top', 
+                'M998 Light Utility Vehicle', 'M998 Light Utility Vehicle - Canopy', 'Mi-8MT Transport Helicopter', 'Pickup-Truck', 'S1203 Minibus', 'UAZ-452 Off-road', 'UAZ-452 Off-road - Laboratory', 'UAZ-469 Off-road', 'UAZ-469 Off-road - Open Top', 
                 'UH-1H Transport Helicopter', 'Ural-4320 Fuel Truck', 'Ural-4320 Transport Truck', 'Ural-4320 Transport Truck - Canopy', 'Ural (Device)', 'VW Rolf'],
     'Vests':    ['6B2 Vest', '6B3 Vest', 'M69 Vest', 'PASGT Vest'], 
 
@@ -33,7 +34,7 @@ const itemsByCategory = {
                 'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Suit Jacket', 'Suit Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
                 'Veshmeshok Backpack', 'Wool Hat'],
 
-'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
+    'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
                 'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
 
     'Components': ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 
@@ -45,6 +46,7 @@ const itemsByCategory = {
 const craftingLevels = {
     'AK-47': 8,
     'AKS-47U': 8,
+    'CheyTac M200 Intervention': 13,
     'Colt 1911': 10,
     'Desert Eagle': 10,
     'M16A2': 5,
@@ -53,6 +55,7 @@ const craftingLevels = {
     'M249 SAW': 11,
     'M416': 7,
     'M9': 3,
+    'MP 43 1C': 8,
     'MP5A2': 5,
     'MP7A2': 5,
     'PKM': 12,
@@ -80,6 +83,7 @@ const craftingLevels = {
     '5.56x45mm 30rnd AUG Mag': 6,
     '5.56x45mm 30rnd STANAG Mag': 5,
     '5.56x45mm 200rnd M249 Belt': 11,
+    '7Rnd M200 Magazine': 10,
     '7.62x39mm 30rnd Sa-58 Mag': 9,
     '7.62x51mm FMJ': 11,
     '7.62x51mm M80 Mag': 10,
@@ -88,9 +92,14 @@ const craftingLevels = {
     '7.62x54mmR 100rnd PK Belt': 12,
     'SPEAR 6.8x51 25rnd': 9,
     'ART II Scope': 7,
+    'A2 Flash Hider': 3,
     'Carry Handle Red-Dot-Sight': 7,
     'PSO-1 Scope': 7,
     '4x20 Carry Handle Scope': 5,
+    '6.8x51mm FlashHider': 4,
+    '6P26 Flash Hider': 4,
+    '6P20 Muzzle Brake': 4,
+    '7.62x51mm FlashHider': 5,
     'M1025 Light Armoured Vehicle': 7,
     'M151A2 Off-Road': 4,
     'M151A2 Off-Road Open Top': 4,
@@ -103,6 +112,7 @@ const craftingLevels = {
     'Pickup-Truck': 7,
     'S1203 Minibus': 5,
     'UAZ-452 Off-road': 5,
+    'UAZ-452 Off-road - Laboratory': 8,
     'UAZ-469 Off-road': 3,
     'UAZ-469 Off-road - Open Top': 3,
     'UH-1H Transport Helicopter': 11,
@@ -234,6 +244,10 @@ const itemComponents = {
             'Non-HQ': {},
             'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 } 
         },
+        'CheyTac M200 Intervention': {
+            'Non-HQ': {},
+            'HQ': { 'Weapon Part (HQ)': 8, 'Stabilizer (HQ)': 8, 'Attachment Part (HQ)': 10, 'Special Gun Barrel': 1 }
+        },
         'Colt 1911': {
             'Non-HQ': { 'Weapon Part': 5, 'Stabilizer': 3, 'Attachment Part': 3 },
             'HQ': {}
@@ -265,6 +279,10 @@ const itemComponents = {
         'M9': {
             'Non-HQ': { 'Weapon Part': 5, 'Stabilizer': 3, 'Attachment Part': 3 },
             'HQ': {}
+        },
+        'MP 43 1C': {
+            'Non-HQ': {},
+            'HQ': { 'Weapon Part (HQ)': 2, 'Stabilizer (HQ)': 2, 'Attachment Part (HQ)': 2 }
         },
         'MP5A2': {
             'Non-HQ': { 'Weapon Part': 11, 'Stabilizer': 6, 'Attachment Part': 7 },
@@ -322,7 +340,7 @@ const itemComponents = {
             'Non-HQ': {},
             'HQ': { 'Weapon Part (HQ)': 6, 'Stabilizer (HQ)': 6, 'Attachment Part (HQ)': 7 }
         }
-},
+    },
     'Magazines': {
         '.300 Blackout Mag': { 
             'Non-HQ': { 'Ammo': 2 },
@@ -347,6 +365,10 @@ const itemComponents = {
         '4.6x40 40rnd Mag': {
             'Non-HQ': { 'Ammo': 1 },
             'HQ': {}
+        },
+        '7Rnd M200 Magazine': {
+            'Non-HQ': {},
+            'HQ': { 'Ammo (HQ)': 3 }
         },
         '7.62x39mm 30rnd Sa-58 Mag': {
             'Non-HQ': { 'Ammo': 1 },
@@ -430,7 +452,27 @@ const itemComponents = {
             'Non-HQ': { 'Component': 41, 'Tempered Glass': 18 },
             'HQ': {}
         },
+        '6.8x51mm FlashHider': {
+            'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
+            'HQ': {}
+        },
+        '6P26 Flash Hider': {
+            'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
+            'HQ': {}
+        },
+        '6P20 Muzzle Brake': {
+            'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
+            'HQ': {}
+        },
+        '7.62x51mm FlashHider': {
+            'Non-HQ': { 'Component': 3, 'Tempered Glass': 1 },
+            'HQ': {}
+        },
         'ART II Scope': {
+            'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
+            'HQ': {}
+        },
+        'A2 Flash Hider': {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
@@ -471,6 +513,10 @@ const itemComponents = {
         'UAZ-452 Off-road': {
             'Non-HQ': { 'Mechanical Component': 3, 'Interior Part': 2, 'Engine Part': 3 },
             'HQ': {}
+        },
+        'UAZ-452 Off-road - Laboratory': {
+            'Non-HQ': {},
+            'HQ': { 'Mechanical Component (HQ)': 4, 'Interior Part (HQ)': 3, 'Engine Part (HQ)': 2 }
         },
         'M998 Light Utility Vehicle': {
             'Non-HQ': { 'Mechanical Component': 5, 'Interior Part': 3, 'Engine Part': 5 },
