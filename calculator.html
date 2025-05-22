@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Crafting Calculator</title>
@@ -32,7 +33,7 @@
             <div class="item-container">
                 <div class="flex-container">
                     <select id="items" class="select-box item-select" style="width: 65%;"></select>
-                    <div class="crafting-level" style="width: 30%;">Crafting Level</div>
+                    <div class="crafting-level" id="crafting-level" style="width: 30%;">Crafting Level</div>
                 </div>
             </div>
         </div>                           
@@ -42,21 +43,23 @@
         </div>
         <button id="calculateButton" class="calculate-button">Calculate Materials</button>
         <div id="result" class="result">
-            <h2>Resources needed:</h2>
-            <ul id="resources-list"></ul>
-            <h2>Components needed:</h2>
-            <ul id="components-list"></ul>
-            <h2>HQ Components needed:</h2>
-            <ul id="hq-components-list"></ul>
-        </div>
-        <div id="result"></div>
+    <h2>Resources needed:</h2>
+    <ul id="resources-list"></ul>
+    <h2>Components needed:</h2>
+    <ul id="components-list"></ul>
+    <div id="hq-components-section">
+        <h2>HQ Components needed:</h2>
+        <ul id="hq-components-list"></ul>
+    </div>
+</div>
         <!-- Show/Hide Breakdown Button -->
+        <div id="breakdownSection" class="hidden"></div>
         <div class="breakdown-toggle-container">
         <button id="toggleBreakdownBtn" class="breakdown-btn" onclick="toggleBreakdown()">Show Breakdown</button>
-        </div>
+</div>
 
         <p class="footer">Made with ❤️ by Levy</p>
-        <p class="footer">ELAN: v.0.6.23</p>
+        <p class="footer">ELAN: v.0.7.10 | Updated: May 21, 2025</p>
     </div>
 
     <script src="calculator.js"></script>

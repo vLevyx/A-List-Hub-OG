@@ -35,9 +35,9 @@ const itemsByCategory = {
                 'Veshmeshok Backpack', 'Wool Hat'],
 
     'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
-                'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
+                    'Kevlar', 'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
 
-    'Components': ['Cloth', 'Iron Plate', 'Kevlar', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 
+    'Components': ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 
                 'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor']
 
 };
@@ -195,23 +195,43 @@ const craftingLevels = {
 };
 
 // Function to calculate and display the crafting level
-function calculateMaterials() {
-    const selectedCategory = document.getElementById('categories').value;
-    const selectedItem = document.getElementById('items').value;
-    const quantity = document.getElementById('quantity').value;
+function calculateMaterials(selectedItem, quantity = 1) {
+    const result = getCraftingResult(selectedItem, quantity);
 
-    // Find the crafting level for the selected item
-    const craftingLevel = craftingLevels[selectedItem] || 0; // Default to 0 if item not found
+    const resourcesNeeded = {};
+    const componentsNeeded = {};
+    const hqComponentsNeeded = {};
+    breakdownMap = {};
 
-    // Display the crafting level in the crafting level box
-    const craftingLevelBox = document.querySelector('.crafting-level');
-    craftingLevelBox.textContent = `Crafting Level: ${craftingLevel}`;
+    function processItem(itemName, qty, isTopLevel = false) {
+        const recipe = recipes[itemName];
+        if (!recipe || !recipe.materials) return;
 
-    // Optional: Add additional material calculation logic based on quantity and crafting level
+        if (!breakdownMap[itemName]) breakdownMap[itemName] = [];
+
+        recipe.materials.forEach(mat => {
+            const totalQty = mat.qty * qty;
+
+            if (recipes[mat.name]) {
+                const subItem = recipes[mat.name];
+                if (subItem.category === "HQ Components") {
+                    hqComponentsNeeded[mat.name] = (hqComponentsNeeded[mat.name] || 0) + totalQty;
+                } else {
+                    componentsNeeded[mat.name] = (componentsNeeded[mat.name] || 0) + totalQty;
+                }
+
+                breakdownMap[itemName].push({ name: mat.name, qty: totalQty });
+                processItem(mat.name, totalQty);
+            } else {
+                resourcesNeeded[mat.name] = (resourcesNeeded[mat.name] || 0) + totalQty;
+                breakdownMap[itemName].push({ name: mat.name, qty: totalQty });
+            }
+        });
+    }
+
+    processItem(selectedItem, quantity, true);
+    displayResults(resourcesNeeded, componentsNeeded, hqComponentsNeeded);
 }
-
-// Add event listener to the calculate button
-document.getElementById('calculateButton').addEventListener('click', calculateMaterials);
 
 // Dark mode toggle
 const darkModeButton = document.getElementById('darkModeButton');
@@ -581,8 +601,8 @@ const itemComponents = {
             'HQ': {}
         },
         '6B3 Vest': {
-            'Non-HQ': { 'Kevlar': 7 },
-            'HQ': {}
+            'Non-HQ': {},
+            'HQ': { 'Kevlar': 7 }
         },
         'M69 Vest': {
             'Non-HQ': { 'Iron Plate': 10, 'Cloth': 14 },
@@ -906,7 +926,12 @@ const itemComponents = {
                 'Resources': { 'Iron Ingot': 15, 'Copper Ingot': 15 },
                 'Non-HQ': {'Weapon Part': 3 },
                 'HQ': {}
-            }
+            },
+            'Kevlar': {
+                'Resources': { 'Iron Plate': 1, 'Iron Ingot': 20 },
+                'Non-HQ': {},
+                'HQ': {}
+            },
     },
     'Components': {
             'Cloth': {
@@ -916,11 +941,6 @@ const itemComponents = {
             },
             'Iron Plate': {
                 'Resources': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Kevlar': {
-                'Resources': { 'Iron Plate': 1, 'Iron Ingot': 20 },
                 'Non-HQ': {},
                 'HQ': {}
             },
@@ -977,6 +997,11 @@ const itemComponents = {
     },
 }
 
+// ✅ Move this cleanup step after the object definition:
+if (itemComponents['Components']?.['Kevlar']) {
+    delete itemComponents['Components']['Kevlar'];
+}
+
 const componentResources = {
     'Cloth': { 'Fabric': 1, 'Polyester': 1 },
     'Iron Plate': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
@@ -1004,6 +1029,33 @@ const componentResources = {
     'Special Gun Barrel': { 'Special Gun Barrel': 1 },
 };
 
+function collectBaseResources(componentName, quantity) {
+    const localMap = {};
+    const componentsMap = {};
+
+    function helper(compName, qty) {
+        if (resourcesList.includes(compName)) {
+            localMap[compName] = (localMap[compName] || 0) + qty;
+            return;
+        }
+
+        if (componentsList.includes(compName)) {
+            componentsMap[compName] = (componentsMap[compName] || 0) + qty;
+        }
+
+        const sub = componentResources[compName];
+        if (!sub) return;
+
+        for (const [subName, subQty] of Object.entries(sub)) {
+            helper(subName, subQty * qty);
+        }
+    }
+
+    helper(componentName, quantity);
+    return { resources: localMap, components: componentsMap };
+}
+
+
 function populateItems() {
     const category = document.getElementById('categories').value;
     const items = itemsByCategory[category];
@@ -1017,62 +1069,56 @@ function populateItems() {
         option.value = item;
         itemsDropdown.appendChild(option);
     });
+
+    // Set initial crafting level text
+    const craftingLevelContainer = document.getElementById("crafting-level");
+    if (craftingLevelContainer) {
+        const selectedItem = itemsDropdown.value;
+        const level = craftingLevels[selectedItem] || "NA";
+        craftingLevelContainer.textContent = `Crafting Level: ${level}`;
+    }
 }
+
+// ✅ Initialize items when the page loads
+populateItems();
+
+let breakdownMap = {}; // Store breakdown for nested components
 
 function calculateResources() {
     const category = document.getElementById('categories').value;
     const item = document.getElementById('items').value;
-    const quantity = parseInt(document.getElementById('quantity').value);
+    const quantity = parseInt(document.getElementById('quantity').value) || 1;
 
-    let totalResources = {}; // Object to store total resources needed
-    let totalComponents = {}; // Object to store total non-HQ components needed
-    let totalHQComponents = {}; // Object to store total HQ components needed
-    let hqComponentBreakdown = {}; // Object to store resources breakdown by HQ component
-    let nonHQComponentBreakdown = {}; // Object to store resources breakdown by non-HQ component
+    let totalResources = {};
+    let totalComponents = {};
+    let totalHQComponents = {};
+    let hqComponentBreakdown = {};
+    let nonHQComponentBreakdown = {};
 
     const selectedCategory = itemComponents[category];
     const itemData = selectedCategory[item];
 
-    // Step 1: Calculate HQ components and their associated non-HQ components
     if (itemData['HQ']) {
-        for (const hqComponent in itemData['HQ']) {
-            const hqQuantity = itemData['HQ'][hqComponent] * quantity;
+    for (const hqComponent in itemData['HQ']) {
+        const hqQuantity = itemData['HQ'][hqComponent] * quantity;
 
-            // Add HQ component totals
-            totalHQComponents[hqComponent] = (totalHQComponents[hqComponent] || 0) + hqQuantity;
+        totalHQComponents[hqComponent] = (totalHQComponents[hqComponent] || 0) + hqQuantity;
 
-            // Initialize breakdown for this HQ component
-            hqComponentBreakdown[hqComponent] = hqComponentBreakdown[hqComponent] || {};
+        if (hqComponent !== 'Special Rotor' && hqComponent !== 'Special Gun Barrel') {
+            const { resources: resMap, components: compMap } = collectBaseResources(hqComponent, hqQuantity);
+hqComponentBreakdown[hqComponent] = resMap;
 
-            // Step 2: Break down HQ components into non-HQ components (skip "Special Rotor and "Special Gun Barrel")
-            if (hqComponent !== 'Special Rotor' && hqComponent !== 'Special Gun Barrel' && componentResources[hqComponent]) {
-                for (const nonHQComponent in componentResources[hqComponent]) {
-                    const nonHQQuantity = componentResources[hqComponent][nonHQComponent] * hqQuantity;
-
-                    // Add to total non-HQ components
-                    totalComponents[nonHQComponent] = (totalComponents[nonHQComponent] || 0) + nonHQQuantity;
-
-                    // Calculate resources for these non-HQ components
-                    if (resourcesList.includes(nonHQComponent)) {
-                        totalResources[nonHQComponent] = (totalResources[nonHQComponent] || 0) + nonHQQuantity;
-
-                        // Add to breakdown by HQ component
-                        hqComponentBreakdown[hqComponent][nonHQComponent] = (hqComponentBreakdown[hqComponent][nonHQComponent] || 0) + nonHQQuantity;
-                    } else if (componentResources[nonHQComponent]) {
-                        for (const resource in componentResources[nonHQComponent]) {
-                            const resourceQuantity = componentResources[nonHQComponent][resource] * nonHQQuantity;
-                            totalResources[resource] = (totalResources[resource] || 0) + resourceQuantity;
-
-                            // Add to breakdown by HQ component
-                            hqComponentBreakdown[hqComponent][resource] = (hqComponentBreakdown[hqComponent][resource] || 0) + resourceQuantity;
-                        }
-                    }
-                }
-            }
+    for (const [res, qty] of Object.entries(resMap)) {
+        totalResources[res] = (totalResources[res] || 0) + qty;
+    }
+    for (const [comp, qty] of Object.entries(compMap)) {
+        totalComponents[comp] = (totalComponents[comp] || 0) + qty;
+    }
         }
     }
+}
 
-    // Step 3: Include the direct HQ 'Resources' into totalResources
+
     if (itemData['Resources']) {
         for (const resource in itemData['Resources']) {
             const resourceQuantity = itemData['Resources'][resource] * quantity;
@@ -1080,112 +1126,123 @@ function calculateResources() {
         }
     }
 
-    // Step 4: Calculate non-HQ components and their resources directly
     if (itemData['Non-HQ']) {
-        for (const nonHQComponent in itemData['Non-HQ']) {
-            const nonHQQuantity = itemData['Non-HQ'][nonHQComponent] * quantity;
+    for (const nonHQComponent in itemData['Non-HQ']) {
+        const nonHQQuantity = itemData['Non-HQ'][nonHQComponent] * quantity;
 
-            // Add non-HQ component totals
-            totalComponents[nonHQComponent] = (totalComponents[nonHQComponent] || 0) + nonHQQuantity;
+        totalComponents[nonHQComponent] = (totalComponents[nonHQComponent] || 0) + nonHQQuantity;
 
-            // Initialize breakdown for this non-HQ component
-            nonHQComponentBreakdown[nonHQComponent] = nonHQComponentBreakdown[nonHQComponent] || {};
+        if (componentResources[nonHQComponent]) {
+            const { resources: resMap, components: compMap } = collectBaseResources(nonHQComponent, nonHQQuantity);
+            nonHQComponentBreakdown[nonHQComponent] = resMap;
 
-            // Calculate resources for these non-HQ components
-            if (resourcesList.includes(nonHQComponent)) {
-                totalResources[nonHQComponent] = (totalResources[nonHQComponent] || 0) + nonHQQuantity;
-
-                // Add to breakdown by non-HQ component
-                nonHQComponentBreakdown[nonHQComponent][nonHQComponent] = (nonHQComponentBreakdown[nonHQComponent][nonHQComponent] || 0) + nonHQQuantity;
-            } else if (componentResources[nonHQComponent]) {
-                for (const resource in componentResources[nonHQComponent]) {
-                    const resourceQuantity = componentResources[nonHQComponent][resource] * nonHQQuantity;
-                    totalResources[resource] = (totalResources[resource] || 0) + resourceQuantity;
-
-                    // Add to breakdown by non-HQ component
-                    nonHQComponentBreakdown[nonHQComponent][resource] = (nonHQComponentBreakdown[nonHQComponent][resource] || 0) + resourceQuantity;
-                }
+            for (const [res, qty] of Object.entries(resMap)) {
+                if (!totalResources[res]) {
+    totalResources[res] = qty;
+} else {
+    totalResources[res] += qty;
+}
             }
         }
     }
+}
 
-    // Step 5: Display the results
+
+    // ✅ Display once at the end
     displayResults(totalResources, totalComponents, totalHQComponents, hqComponentBreakdown, nonHQComponentBreakdown);
 }
 
-function displayResults(totalResources, totalComponents, totalHQComponents, hqComponentBreakdown, nonHQComponentBreakdown) {
-    let resultHTML = '';
+function displayResults(resources, components, hqComponents, hqComponentBreakdown, nonHQComponentBreakdown) {
+    const resList = document.getElementById("resources-list");
+    const compList = document.getElementById("components-list");
+    const hqList = document.getElementById("hq-components-list");
 
-    // Display resources needed
-    resultHTML += '<h2>Resources needed:</h2><ul>';
-    for (const resource in totalResources) {
-        resultHTML += `<li>${resource}: ${totalResources[resource]}</li>`;
+    resList.innerHTML = "";
+    compList.innerHTML = "";
+    hqList.innerHTML = "";
+
+    const hqSection = document.getElementById("hq-components-section");
+    if (hqSection) {
+        hqSection.style.display = Object.keys(hqComponents).length === 0 ? "none" : "block";
     }
-    resultHTML += '</ul>';
 
-    // Display non-HQ components needed
-    resultHTML += '<h2>Components needed:</h2><ul>';
-    for (const component in totalComponents) {
-        if (!resourcesList.includes(component) && component !== 'Special Rotor' && component !== 'Special Gun Barrel') {
-            resultHTML += `<li>${component}: ${totalComponents[component]}</li>`;
+    for (const [name, qty] of Object.entries(resources)) {
+        const li = document.createElement("li");
+        li.textContent = `${name}: ${qty}`;
+        resList.appendChild(li);
+    }
+    for (const [name, qty] of Object.entries(components)) {
+        const li = document.createElement("li");
+        li.textContent = `${name}: ${qty}`;
+        compList.appendChild(li);
+    }
+    for (const [name, qty] of Object.entries(hqComponents)) {
+        const li = document.createElement("li");
+        li.textContent = `${name}: ${qty}`;
+        hqList.appendChild(li);
+    }
+
+    displayBreakdown(hqComponentBreakdown, nonHQComponentBreakdown);
+}
+
+function displayBreakdown(hqBreakdown, nonHqBreakdown) {
+    let breakdownSection = document.getElementById("breakdownSection");
+    if (!breakdownSection) {
+        breakdownSection = document.createElement("div");
+        breakdownSection.id = "breakdownSection";
+        breakdownSection.classList.add("hidden", "result"); // Add 'result' class
+        document.getElementById("result").appendChild(breakdownSection);
+}
+
+    breakdownSection.innerHTML = `
+<h3 style="
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 0.25rem;
+    margin-bottom: 1rem;  /* ✅ Add spacing after the underline */
+">
+    Resources by Component:
+</h3>`;
+
+    const combineAndRender = (breakdownData) => {
+    for (const [component, resources] of Object.entries(breakdownData)) {
+        const wrapper = document.createElement("div");
+        wrapper.style.marginBottom = "1rem"; // spacing between components
+
+        const header = document.createElement("div");
+        header.textContent = component;
+        header.style.fontWeight = "bold";
+        header.style.fontSize = "1.1rem"; // slightly larger
+
+        const list = document.createElement("ul");
+        list.style.listStyleType = "none"; // remove bullet points
+        list.style.paddingLeft = "1rem";
+
+        for (const [resName, qty] of Object.entries(resources)) {
+            const li = document.createElement("li");
+            li.textContent = `${resName}: ${qty}`;
+            list.appendChild(li);
         }
+
+        wrapper.appendChild(header);
+        wrapper.appendChild(list);
+        breakdownSection.appendChild(wrapper);
     }
-    resultHTML += '</ul>';
+};
 
-    // Display HQ components needed
-    if (Object.keys(totalHQComponents).length > 0) {
-        resultHTML += '<h2>HQ Components needed:</h2><ul>';
-        for (const hqComponent in totalHQComponents) {
-            resultHTML += `<li>${hqComponent}: ${totalHQComponents[hqComponent]}</li>`;
-        }
-        resultHTML += '</ul>';
-    }
-
-    // Breakdown section
-    resultHTML += '<div id="breakdownSection" class="hidden">';
-
-    // Display breakdown of resources by HQ component
-    if (Object.keys(hqComponentBreakdown).length > 0) {
-        resultHTML += '<h2>Resources by HQ Component:</h2>';
-        for (const hqComponent in hqComponentBreakdown) {
-            resultHTML += `<h3>${hqComponent}:</h3><ul>`;
-            for (const resource in hqComponentBreakdown[hqComponent]) {
-                resultHTML += `<li>${resource}: ${hqComponentBreakdown[hqComponent][resource]}</li>`;
-            }
-            resultHTML += '</ul>';
-        }
-    }
-
-    // Display breakdown of resources by Non-HQ component
-    if (Object.keys(nonHQComponentBreakdown).length > 0) {
-        resultHTML += '<h2>Resources by Component:</h2>';
-        for (const nonHQComponent in nonHQComponentBreakdown) {
-            resultHTML += `<h3>${nonHQComponent}:</h3><ul>`;
-            for (const resource in nonHQComponentBreakdown[nonHQComponent]) {
-                resultHTML += `<li>${resource}: ${nonHQComponentBreakdown[nonHQComponent][resource]}</li>`;
-            }
-            resultHTML += '</ul>';
-        }
-    }
-
-    resultHTML += '</div>'; // Close breakdown section
-
-    document.getElementById('result').innerHTML = resultHTML;
-
-    // Set the initial state of the breakdown section
-    document.getElementById('breakdownSection').style.display = 'none'; // Start hidden
+    combineAndRender(nonHqBreakdown);
+    combineAndRender(hqBreakdown);
 }
 
 function toggleBreakdown() {
-    const breakdownSection = document.getElementById('breakdownSection');
-    const toggleButton = document.getElementById('toggleBreakdownBtn');
+    const section = document.getElementById("breakdownSection");
+    const btn = document.getElementById("toggleBreakdownBtn");
 
-    // Toggle the visibility of the breakdown section
-    if (breakdownSection.style.display === 'none') {
-        breakdownSection.style.display = 'block';
-        toggleButton.textContent = 'Hide Breakdown';
-    } else {
-        breakdownSection.style.display = 'none';
-        toggleButton.textContent = 'Show Breakdown';
-    }
+    if (!section || !btn) return;
+
+    section.classList.toggle("hidden");
+    const showing = !section.classList.contains("hidden");
+    btn.textContent = showing ? "Hide Breakdown" : "Show Breakdown";
 }
