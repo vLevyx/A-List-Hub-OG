@@ -59,51 +59,69 @@ h1::after {
     background-color: #f9f9f9;
 }
 
-/* Mobile Optimization - Match styling for smaller screens */
+.attachment-filter {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.attachment-filter label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.attachment-filter select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
 @media (max-width: 768px) {
     .select-box {
-        width: 100%; /* Use the full width of the screen */
-        max-width: 100%; /* Ensure no maximum width is set */
-        padding: 12px; /* Slightly increased padding for touch interaction */
-        font-size: 18px; /* Increase font size for better readability */
+        width: 100%;
+        max-width: 100%;
+        padding: 12px;
+        font-size: 18px;
     }
 
-    /* Ensuring container takes full width on mobile */
     .container {
-        width: 95%; /* Adjusted to be closer to full width */
+        width: 95%;
         padding: 15px;
-        margin: 10px auto; /* Center container with margin */
+        margin: 10px auto;
     }
 
     h1 {
-        font-size: 1.5rem; /* Adjust header size for mobile */
-        white-space: normal; /* Allow wrapping of text */
+        font-size: 1.5rem;
+        white-space: normal;
     }
 
     .button-group {
-        flex-direction: column; /* Stack buttons vertically */
-        align-items: stretch; /* Stretch to full width */
-        margin-bottom: 20px; /* Add spacing below button group */
-        gap: 5px; /* Add gap between buttons */
+        flex-direction: column;
+        align-items: stretch;
+        margin-bottom: 20px;
+        gap: 5px;
     }
 
     .filter-button {
-        margin: 5px 0; /* Add margin between buttons */
+        margin: 5px 0;
     }
 }
 
-/* For very small screens (e.g., phones in portrait mode) */
 @media (max-width: 480px) {
     .select-box {
-        font-size: 16px; /* Reduce font size slightly */
-        padding: 10px; /* Slight padding adjustment */
+        font-size: 16px;
+        padding: 10px;
     }
+
     .container {
-        padding: 10px; /* Slightly less padding on the container */
+        padding: 10px;
     }
 
     h1 {
-        font-size: 1.3rem; /* Further reduce the font size for very small screens */
+        font-size: 1.3rem;
     }
 }
 
@@ -119,7 +137,7 @@ h1::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000; /* Bring button to the front */
+    z-index: 1000;
 }
 
 #darkModeButton img {
@@ -128,7 +146,7 @@ h1::after {
 }
 
 #darkModeButton:hover {
-    transform: scale(1.1); /* Slightly less scale effect */
+    transform: scale(1.1);
 }
 
 table.result {
@@ -137,7 +155,8 @@ table.result {
     border-collapse: collapse;
 }
 
-table.result th, table.result td {
+table.result th,
+table.result td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
@@ -149,71 +168,145 @@ table.result th {
 }
 
 body.dark-mode {
-    background-color: #333;
-    color: #e0e0e0;
+    background-color: #121212;
+    color: #f0f0f0;
 }
 
 body.dark-mode h1 {
-    color: #ababab; /* Brighter text color for dark mode */
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.196); /* Add shadow for readability */
+    color: #ffffff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 .container.dark-mode {
-    background-color: #444;
+    background-color: #1e1e1e;
 }
 
-.select-box.dark-mode {
-    background-color: #555;
-    border-color: #777;
-    color: #e0e0e0;
+.select-box.dark-mode,
+.attachment-filter select.dark-mode {
+    background-color: #1a1a1a;
+    border-color: #333;
+    color: #f0f0f0;
 }
 
-table.result.dark-mode th, table.result.dark-mode td {
-    background-color: #555;
-    color: #e0e0e0;
-    border-color: #777;
+table.result.dark-mode th,
+table.result.dark-mode td {
+    background-color: #1c1c1c;
+    color: #f0f0f0;
+    border-color: #333;
 }
 
-/* Button Group Styles */
 .button-group {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
-.filter-button {
+.filter-button,
+.view-toggle {
     flex: 1;
     margin: 0 5px;
     padding: 10px;
     border: 1px solid #007bff;
-    background-color: #fff; /* Light mode background */
+    background-color: #fff;
     color: #007bff;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.2s, color 0.2s;
+    text-align: center;
 }
 
-.filter-button.selected {
-    background-color: #007bff; /* Selected state */
+.filter-button.selected,
+.view-toggle.selected {
+    background-color: #007bff;
     color: #fff;
 }
 
-.filter-button:hover {
-    background-color: #dcdcdc; /* Light mode hover effect */
+.filter-button:hover,
+.view-toggle:hover {
+    background-color: #dcdcdc;
 }
 
-/* Dark Mode Styles for Button Group */
-body.dark-mode .filter-button {
-    background-color: #555; /* Dark mode background */
-    border-color: #777; /* Dark mode border color */
-    color: #e0e0e0; /* Dark mode text color */
+body.dark-mode .filter-button,
+body.dark-mode .view-toggle {
+    background-color: #222;
+    border-color: #444;
+    color: #f0f0f0;
 }
 
-body.dark-mode .filter-button.selected {
-    background-color: #007bff; /* Keep selected state blue */
-    color: #fff; /* Keep selected text white */
+body.dark-mode .filter-button.selected,
+body.dark-mode .view-toggle.selected {
+    background-color: #007bff;
+    color: #fff;
 }
 
-body.dark-mode .filter-button:hover {
-    background-color: #666; /* Dark mode hover effect */
+body.dark-mode .filter-button:hover,
+body.dark-mode .view-toggle:hover {
+    background-color: #333;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+body.dark-mode .checkbox-group label {
+    background-color: #222;
+    color: #f0f0f0;
+    border-color: #444;
+}
+
+.attachment-filter-toggle {
+    width: 100%;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.checkbox-label input {
+    cursor: pointer;
+}
+
+.checkbox-label input:checked {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.dark-mode .attachment-filter-toggle {
+    background-color: #1e1e1e;
+    border-color: #333;
 }
