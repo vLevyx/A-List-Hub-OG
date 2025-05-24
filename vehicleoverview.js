@@ -34,7 +34,7 @@ const vehicles = [
         "photo": "m998LUV.png",
         "colors": "Olive, Camo",
         "whereToBuy": "Vehicle Shop (Outpost)",
-        "usage": "Tactical mobility and troop transport"
+        "usage": "Tactical mobility and personel transport"
     },
     {
         "name": "M998 Light Utility Vehicle - Canopy",
@@ -43,7 +43,7 @@ const vehicles = [
         "photo": "m998LUVcanopy.png",
         "colors": "Olive, Camo",
         "whereToBuy": "Vehicle Shop (Outpost)",
-        "usage": "Covered transport for operations in rain or dust"
+        "usage": "Tactical mobility and personel transport"
     },
     {
         "name": "M923A1 Fuel Truck",
@@ -52,7 +52,7 @@ const vehicles = [
         "photo": "m923a1_fuel.png",
         "colors": "Olive, Camo",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Field refueling operations"
+        "usage": "American Fuel Truck. Used for Fuel and Polyester refining. NOTE: American trucks CANNOT be lock picked."
     },
     {
         "name": "M923A1 Transport Truck",
@@ -62,7 +62,7 @@ const vehicles = [
         "photo": "m923a1.png",
         "colors": "Olive, Camo, Black, Blue, Brown, Green, Khaki, Orange, Red, White, Yellow",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Bulk troop or item transport"
+        "usage": "Bulk personel or item transport. NOTE: American trucks CANNOT be lock picked."
     },
     {
         "name": "M923A1 Transport Truck - Canopy",
@@ -71,7 +71,7 @@ const vehicles = [
         "photo": "m923a1_cover.png",
         "colors": "Olive, Camo, Black, Blue, Brown, Green, Khaki, Orange, Red, White, Yellow",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Weather-protected troop hauling"
+        "usage": "Bulk personel or item transport, comes with a canopy for better concealment. NOTE: American trucks CANNOT be lock picked."
     },
     {
         "name": "Pickup Truck",
@@ -99,7 +99,7 @@ const vehicles = [
         "photo": "uaz452-laboratory.png",
         "colors": "Grey",
         "whereToBuy": "Black Market",
-        "usage": "Medical or scientific mobile base"
+        "usage": "Rugged off-road meth-laboratory."
     },
     {
         "name": "UAZ-452 Off-Road - Banana",
@@ -108,7 +108,7 @@ const vehicles = [
         "photo": "uaz452banana.png",
         "colors": "Banana",
         "whereToBuy": "Banana's Chillout Zone",
-        "usage": "Quirky RP and light delivery"
+        "usage": "Drive around in a banana van. Why WOULDN'T you want to do that?"
     },
     {
         "name": "UAZ-469 Off-Road",
@@ -135,7 +135,7 @@ const vehicles = [
         "photo": "ural4320_fuel.png",
         "colors": "Olive, Camo, Blue, Orange, White-Blue, White-Red",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Large-scale fuel delivery"
+        "usage": "Large-scale Fuel Truck. Used for Fuel and Polyester refining. NOTE: Russian trucks CAN be lock picked."
     },
     {
         "name": "Ural-4320 Transport Truck",
@@ -144,7 +144,7 @@ const vehicles = [
         "photo": "ural4320transporttruck.png",
         "colors": "Olive, Camo, Blue, Orange, White-Blue",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Heavy troop movement"
+        "usage": "Large-scale / Bulk personel or item transport. NOTE: Russian trucks CAN be lock picked."
     },
     {
         "name": "Ural-4320 Transport Truck - Canopy",
@@ -153,7 +153,7 @@ const vehicles = [
         "photo": "ural4320_cover.png",
         "colors": "Olive, Camo, Blue, Orange, White-Blue",
         "whereToBuy": "Truck Shops (Main Towns)",
-        "usage": "Protected heavy transport"
+        "usage": "Large-scale / Bulk personel or item transport, comes with a canopy for better concealment. NOTE: Russian trucks CAN be lock picked."
     },
     {
         "name": "VW Rolf",
@@ -162,7 +162,7 @@ const vehicles = [
         "photo": "vwrolf.png",
         "colors": "Black, White",
         "whereToBuy": "VW Car Dealer",
-        "usage": "Stylish RP or personal vehicle"
+        "usage": "Stylish personal vehicle, quick car to get from point A to point B."
     },
     {
         "name": "S105 Car",
@@ -180,7 +180,7 @@ const vehicles = [
         "photo": "S1203-Minibus.png",
         "colors": "Red, Blue, Brown, Yellow, Khaki",
         "whereToBuy": "Import Vehicles (Meaux, Regina)",
-        "usage": "Small group transport"
+        "usage": "Small group and item transport"
     },
     {
         "name": "MI8-MT Transport Helicopter",
@@ -188,8 +188,8 @@ const vehicles = [
         "ores": 26,
         "photo": "mi8-mt.png",
         "colors": "Camo",
-        "whereToBuy": "Military Vendor",
-        "usage": "High-capacity air transport"
+        "whereToBuy": "Only obtainable through crafting",
+        "usage": "Russian High-capacity air transport. Holds: 2 Pilots - 12 Passengers"
     },
     {
         "name": "UH-1H Transport Helicopter",
@@ -197,8 +197,8 @@ const vehicles = [
         "ores": 26,
         "photo": "uh-1h.png",
         "colors": "Green",
-        "whereToBuy": "Military Vendor",
-        "usage": "Tactical helicopter mobility"
+        "whereToBuy": "Only obtainable through crafting",
+        "usage": "United States Tactical helicopter mobility. Holds: 2 Pilots - 10 Passengers"
     }
 ];;
 
