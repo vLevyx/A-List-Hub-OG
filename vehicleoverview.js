@@ -272,7 +272,6 @@ function openModal(vehicle, adjustedPrice) {
     document.getElementById('modalPrice').textContent = `Price: $${adjustedPrice.toLocaleString()}`;
     document.getElementById('modalOres').textContent = `Ores: ${vehicle.ores}`;
     document.getElementById('modalHoneycombs').textContent = vehicle.honeycombs ? `Honeycombs: ${vehicle.honeycombs}` : '';
-    document.getElementById('modalCanisters').textContent = vehicle.Canisters ? `Canisters: ${vehicle.Canisters}` : '';
     document.getElementById('modalColors').textContent = vehicle.colors ? `Available Colors: ${vehicle.colors}` : 'Available Colors: TBD';
     document.getElementById('modalBuy').textContent = vehicle.whereToBuy ? `Where to Buy: ${vehicle.whereToBuy}` : 'Where to Buy: Vendor or Marketplace';
     document.getElementById('modalUse').textContent = vehicle.usage ? `Recommended Use: ${vehicle.usage}` : '';
