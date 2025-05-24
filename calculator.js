@@ -7,43 +7,45 @@ const componentsList = ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'W
 const hqComponentsList = ['Component (HQ)', 'Kevlar', 'Weapon Part (HQ)', 'Stabilizer (HQ)', 'Attachment Part (HQ)', 'Ammo (HQ)', 'Mechanical Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 'Rotor (HQ)', 'Special Rotor', 'Special Gun Barrel'];
 
 const itemsByCategory = {
-    'Weapons':  ['AK-47', 'AKS-47U', 'CheyTac M200 Intervention', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP 43 1C', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74', 
-                'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
+    'Weapons': ['AK-47', 'AKS-47U', 'CheyTac M200 Intervention', 'Colt 1911', 'Desert Eagle', 'M16A2', 'M16A2 - AUTO', 'M21 SWS', 'M249 SAW', 'M416', 'M9', 'MP 43 1C', 'MP5A2', 'MP7A2', 'PKM', 'PM', 'RPK-74',
+        'S8-58V', 'Sa-58P', 'Scar-H', 'SIG MCX', 'SIG MCX SPEAR', 'SSG10A2-Sniper', 'Stegr AUG', 'SR-25 Rifle', 'SVD'],
 
-    'Magazines': ['8rnd .45 ACP', '9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '.300 Blackout Mag', '.338 5rnd FMJ', '.50 AE 7rnd Mag', 
-                '12/70 7mm Buckshot', '4.6x40 40rnd Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 30rnd AUG Mag', 
-                '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7Rnd M200 Magazine', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ', '7.62x51mm M80 Mag', 
-                '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd', '7.62x54mmR 100rnd PK Belt', 'SPEAR 6.8x51 25rnd'],
+    'Magazines': ['8rnd .45 ACP', '9x18mm 8rnd PM Mag', '9x19mm 15rnd M9 Mag', '.300 Blackout Mag', '.338 5rnd FMJ', '.50 AE 7rnd Mag',
+        '12/70 7mm Buckshot', '4.6x40 40rnd Mag', '5.45x39mm 30rnd AK Mag', '5.45x39mm 45rnd RPK-74 Tracer Mag', '5.56x45mm 30rnd AUG Mag',
+        '5.56x45mm 30rnd STANAG Mag', '5.56x45mm 200rnd M249 Belt', '7Rnd M200 Magazine', '7.62x39mm 30rnd Sa-58 Mag', '7.62x51mm FMJ', '7.62x51mm M80 Mag',
+        '7.62x51mm 30rnd Mag', 'SR25 7.62x51mm 20rnd', '7.62x54mmR 100rnd PK Belt', 'SPEAR 6.8x51 25rnd'],
 
-    'Attachments': ['ART II Scope', 'A2 Flash Hider', 'Carry Handle Red-Dot-Sight', 'PSO-1 Scope', '4x20 Carry Handle Scope', '6.8x51mm FlashHider', '6P26 Flash Hider', 
-                    '6P20 Muzzle Brake', '7.62x51mm FlashHider'],
+    'Attachments': ['A2 Flash Hider', 'ART II Scope', 'Carry Handle Red-Dot-Sight', 'Leupold VX-6', 'PSO-1 Scope', '4x20 Carry Handle Scope', '6.8x51mm FlashHider', '6P26 Flash Hider',
+        '6P20 Muzzle Brake', '7.62x51mm FlashHider'],
 
-    'Vehicles': ['M1025 Light Armoured Vehicle', 'M151A2 Off-Road', 'M151A2 Off-Road Open Top', 'M923A1 Fuel Truck', 'M923A1 Transport Truck', 'M923A1 Transport Truck - Canopy', 
-                'M998 Light Utility Vehicle', 'M998 Light Utility Vehicle - Canopy', 'Mi-8MT Transport Helicopter', 'Pickup-Truck', 'S1203 Minibus', 'UAZ-452 Off-road', 'UAZ-452 Off-road - Laboratory', 'UAZ-469 Off-road', 'UAZ-469 Off-road - Open Top', 
-                'UH-1H Transport Helicopter', 'Ural-4320 Fuel Truck', 'Ural-4320 Transport Truck', 'Ural-4320 Transport Truck - Canopy', 'Ural (Device)', 'VW Rolf'],
-    'Vests':    ['6B2 Vest', '6B3 Vest', 'M69 Vest', 'PASGT Vest'], 
+    'Vehicles': ['M1025 Light Armoured Vehicle', 'M151A2 Off-Road', 'M151A2 Off-Road Open Top', 'M923A1 Fuel Truck', 'M923A1 Transport Truck', 'M923A1 Transport Truck - Canopy',
+        'M998 Light Utility Vehicle', 'M998 Light Utility Vehicle - Canopy', 'Mi-8MT Transport Helicopter', 'Pickup-Truck', 'S105 Car', 'S1203 Minibus', 'S1203 - Laboratory', 'UAZ-452 Off-road', 'UAZ-452 Off-road - Laboratory',
+        'UAZ-469 Off-road', 'UAZ-469 Off-road - Open Top', 'UH-1H Transport Helicopter', 'Ural-4320 Fuel Truck', 'Ural-4320 Transport Truck', 'Ural-4320 Transport Truck - Canopy', 'Ural (Device)', 'VW Rolf'],
 
-    'Helmets':  ['PASGT Helmet', 'PASGT Helmet - Camouflaged', 'PASGT Helmet - Camouflaged Netting', 'SPH-4 Helmet', 'SSh-68 Helmet', 
-                'SSh-68 Helmet - Camouflaged', 'SSh-68 Helmet - Cover', 'SSh-68 Helmet - KZS', 'SSh-68 Helmet - Netting', 'ZSh-5 Helmet'], 
+    'Vests': ['6B2 Vest', '6B3 Vest', 'M69 Vest', 'PASGT Vest'],
 
-    'Clothes':  ['ALICE Medium Backpack', 'Bandana', 'Balaclava', 'BDU Blouse', 'BDU Blouse - Rolled-up', 'BDU Trousers', 'Beanie', 'Boonie', 'Cargo Pants', 'Cargo Pants (Colored)',
-                'Cardigan', 'Classic Shoe', 'CWU-27 Pilot Coveralls', 'Dress', 'Fedora', 'Fisher Hat', 'Flat Cap', 'Half Mask', 'Hunting Vest', 'IIFS Large Combat Field Pack',
-                'Jacket', 'Jeans', 'Jeans (Colored)', 'KLMK Coveralls', 'Knit Cap', 'Kolobok Backpack', 'M70 Backpack', 'M70 Cap', 'M70 Parka',
-                'M70 Trousers', 'M88 Field Cap', 'M88 Jacket', 'M88 Jacket - Rolled-up', 'M88 Trousers', 'Mask (Medical)', 'Mask (Latex)', 'Mask (Ski)', 'Officer\'s Cap',
-                'Panamka', 'Paper Bag', 'Polo', 'Pullover', 'Robe', 'Runner Shoe', 'Sneaker', 'Soviet Combat Boots',
-                'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Suit Jacket', 'Suit Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
-                'Veshmeshok Backpack', 'Wool Hat'],
+    'Helmets': ['PASGT Helmet', 'PASGT Helmet - Camouflaged', 'PASGT Helmet - Camouflaged Netting', 'SPH-4 Helmet', 'SSh-68 Helmet',
+        'SSh-68 Helmet - Camouflaged', 'SSh-68 Helmet - Cover', 'SSh-68 Helmet - KZS', 'SSh-68 Helmet - Netting', 'ZSh-5 Helmet'],
 
-    'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)', 
-                    'Kevlar', 'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
+    'Clothes': ['ALICE Medium Backpack', 'Bandana', 'Balaclava', 'BDU Blouse', 'BDU Blouse - Rolled-up', 'BDU Trousers', 'Beanie', 'Boonie', 'Cargo Pants', 'Cargo Pants (Colored)',
+        'Cardigan', 'Classic Shoe', 'CWU-27 Pilot Coveralls', 'Dress', 'Fedora', 'Fisher Hat', 'Flat Cap', 'Half Mask', 'Hunting Vest', 'IIFS Large Combat Field Pack',
+        'Jacket', 'Jeans', 'Jeans (Colored)', 'KLMK Coveralls', 'Knit Cap', 'Kolobok Backpack', 'M70 Backpack', 'M70 Cap', 'M70 Parka',
+        'M70 Trousers', 'M88 Field Cap', 'M88 Jacket', 'M88 Jacket - Rolled-up', 'M88 Trousers', 'Mask (Medical)', 'Mask (Latex)', 'Mask (Ski)', 'Officer\'s Cap',
+        'Panamka', 'Paper Bag', 'Polo', 'Pullover', 'Robe', 'Runner Shoe', 'Sneaker', 'Soviet Combat Boots',
+        'Soviet Pilot Jacket', 'Soviet Pilot Pants', 'Suit Jacket', 'Suit Pants', 'Sweater', 'Sweat Pants', 'TShirt', 'US Combat Boots',
+        'Veshmeshok Backpack', 'Wool Hat'],
 
-    'Components': ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part', 
-                'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor']
+    'HQ Components': ['Ammo (HQ)', 'Attachment Part (HQ)', 'Component (HQ)', 'Engine Part (HQ)', 'Interior Part (HQ)',
+        'Kevlar', 'Mechanical Component (HQ)', 'Rotor (HQ)', 'Stabilizer (HQ)', 'Weapon Part (HQ)'],
+
+    'Components': ['Cloth', 'Iron Plate', 'Component', 'Tempered Glass', 'Weapon Part', 'Stabilizer', 'Attachment Part',
+        'Ammo', 'Mechanical Component', 'Engine Part', 'Interior Part', 'Rotor']
 
 };
 
 // Crafting levels for each item
 const craftingLevels = {
+    // Weapons
     'AK-47': 8,
     'AKS-47U': 8,
     'CheyTac M200 Intervention': 13,
@@ -70,6 +72,7 @@ const craftingLevels = {
     'Stegr AUG': 6,
     'SR-25 Rifle': 11,
     'SVD': 10,
+    // Magazines
     '8rnd .45 ACP': 4,
     '9x18mm 8rnd PM Mag': 2,
     '9x19mm 15rnd M9 Mag': 3,
@@ -91,15 +94,18 @@ const craftingLevels = {
     'SR25 7.62x51mm 20rnd': 11,
     '7.62x54mmR 100rnd PK Belt': 12,
     'SPEAR 6.8x51 25rnd': 9,
-    'ART II Scope': 7,
-    'A2 Flash Hider': 3,
-    'Carry Handle Red-Dot-Sight': 7,
-    'PSO-1 Scope': 7,
+    // Attachments
     '4x20 Carry Handle Scope': 5,
     '6.8x51mm FlashHider': 4,
-    '6P26 Flash Hider': 4,
     '6P20 Muzzle Brake': 4,
+    '6P26 Flash Hider': 4,
     '7.62x51mm FlashHider': 5,
+    'A2 Flash Hider': 3,
+    'ART II Scope': 7,
+    'Carry Handle Red-Dot-Sight': 7,
+    'Leupold VX-6': 10,
+    'PSO-1 Scope': 7,
+    // Vehicles
     'M1025 Light Armoured Vehicle': 7,
     'M151A2 Off-Road': 4,
     'M151A2 Off-Road Open Top': 4,
@@ -110,7 +116,9 @@ const craftingLevels = {
     'M998 Light Utility Vehicle - Canopy': 8,
     'Mi-8MT Transport Helicopter': 12,
     'Pickup-Truck': 7,
+    'S105 Car': 4,
     'S1203 Minibus': 5,
+    'S1203 - Laboratory': 5,
     'UAZ-452 Off-road': 5,
     'UAZ-452 Off-road - Laboratory': 8,
     'UAZ-469 Off-road': 3,
@@ -121,10 +129,12 @@ const craftingLevels = {
     'Ural-4320 Transport Truck - Canopy': 10,
     'Ural (Device)': 13,
     'VW Rolf': 7,
+    // Vests
     '6B2 Vest': 7,
     '6B3 Vest': 9,
     'M69 Vest': 7,
     'PASGT Vest': 7,
+    // Helmets
     'PASGT Helmet': 4,
     'PASGT Helmet - Camouflaged': 4,
     'PASGT Helmet - Camouflaged Netting': 4,
@@ -135,6 +145,7 @@ const craftingLevels = {
     'SSh-68 Helmet - KZS': 4,
     'SSh-68 Helmet - Netting': 4,
     'ZSh-5 Helmet': 6,
+    // Clothing
     'ALICE Medium Backpack': 4,
     'Bandana': 3,
     'Balaclava': 3,
@@ -158,7 +169,7 @@ const craftingLevels = {
     'Jacket': 4,
     'Jeans': 3,
     'Jeans (Colored)': 4,
-    'KLMK Coveralls': 6, 
+    'KLMK Coveralls': 6,
     'Knit Cap': 1,
     'Kolobok Backpack': 2,
     'M70 Backpack': 5,
@@ -172,7 +183,7 @@ const craftingLevels = {
     'Mask (Medical)': 5,
     'Mask (Latex)': 5,
     'Mask (Ski)': 3,
-    'Officer\'s Cap': 7, 
+    'Officer\'s Cap': 7,
     'Panamka': 2,
     'Paper Bag': 5,
     'Polo': 4,
@@ -258,11 +269,11 @@ const itemComponents = {
     'Weapons': {
         'AK-47': {
             'Non-HQ': {},
-            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 } 
+            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 }
         },
         'AKS-47U': {
             'Non-HQ': {},
-            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 } 
+            'HQ': { 'Weapon Part (HQ)': 3, 'Stabilizer (HQ)': 3, 'Attachment Part (HQ)': 3 }
         },
         'CheyTac M200 Intervention': {
             'Non-HQ': {},
@@ -362,11 +373,11 @@ const itemComponents = {
         }
     },
     'Magazines': {
-        '.300 Blackout Mag': { 
+        '.300 Blackout Mag': {
             'Non-HQ': { 'Ammo': 2 },
             'HQ': {}
         },
-        '.338 5rnd FMJ': { 
+        '.338 5rnd FMJ': {
             'Non-HQ': { 'Ammo': 2 },
             'HQ': {}
         },
@@ -400,15 +411,15 @@ const itemComponents = {
         },
         '7.62x51mm 20rnd M14 Mag': {
             'Non-HQ': { 'Ammo': 1 },
-            'HQ': {} 
+            'HQ': {}
         },
         '7.62x51mm 30rnd Mag': {
             'Non-HQ': { 'Ammo': 1 },
-            'HQ': {} 
+            'HQ': {}
         },
         'SR25 7.62x51mm 20rnd': {
             'Non-HQ': {},
-            'HQ': { 'Ammo (HQ)': 1 } 
+            'HQ': { 'Ammo (HQ)': 1 }
         },
         '7.62x54mmR 10rnd SVD Mag': {
             'Non-HQ': {},
@@ -452,7 +463,7 @@ const itemComponents = {
         },
         '7.62x51mm FMJ': {
             'Non-HQ': {},
-            'HQ': { 'Ammo (HQ)': 1 }  
+            'HQ': { 'Ammo (HQ)': 1 }
         },
         '7.62x54mmR 100rnd PK Belt': {
             'Non-HQ': {},
@@ -476,11 +487,11 @@ const itemComponents = {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
-        '6P26 Flash Hider': {
+        '6P20 Muzzle Brake': {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
-        '6P20 Muzzle Brake': {
+        '6P26 Flash Hider': {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
@@ -488,16 +499,20 @@ const itemComponents = {
             'Non-HQ': { 'Component': 3, 'Tempered Glass': 1 },
             'HQ': {}
         },
-        'ART II Scope': {
+        'A2 Flash Hider': {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
-        'A2 Flash Hider': {
+        'ART II Scope': {
             'Non-HQ': { 'Component': 2, 'Tempered Glass': 1 },
             'HQ': {}
         },
         'Carry Handle Red-Dot-Sight': {
             'Non-HQ': { 'Component': 5, 'Tempered Glass': 2 },
+            'HQ': {}
+        },
+        'Leupold VX-6': {
+            'Non-HQ': { 'Component': 17, 'Tempered Glass': 8 },
             'HQ': {}
         },
         'PSO-1 Scope': {
@@ -508,7 +523,7 @@ const itemComponents = {
     'Vehicles': {
         'Ural-4320 Transport Truck - Canopy': {
             'Non-HQ': {},
-            'HQ': {'Mechanical Component (HQ)': 5, 'Interior Part (HQ)': 5, 'Engine Part (HQ)': 3 }
+            'HQ': { 'Mechanical Component (HQ)': 5, 'Interior Part (HQ)': 5, 'Engine Part (HQ)': 3 }
         },
         'UH-1H Transport Helicopter': {
             'Non-HQ': {},
@@ -586,6 +601,14 @@ const itemComponents = {
             'Non-HQ': { 'Mechanical Component': 19, 'Interior Part': 11, 'Engine Part': 19 },
             'HQ': {}
         },
+        'S105 Car': {
+            'Non-HQ': { 'Mechanical Component': 3, 'Interior Part': 2, 'Engine Part': 3 },
+            'HQ': {}
+        },
+        'S1203 - Laboratory': {
+            'Non-HQ': { 'Mechanical Component': 41, 'Interior Part': 25, 'Engine Part': 41 },
+            'HQ': {}
+        },
         'VW Rolf': {
             'Non-HQ': { 'Mechanical Component': 31, 'Interior Part': 19, 'Engine Part': 31 },
             'HQ': {}
@@ -656,344 +679,344 @@ const itemComponents = {
         }
     },
     'Clothes': {
-            'ALICE Medium Backpack': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'Bandana': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },               
-            'Balaclava': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'BDU Blouse': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'BDU Blouse - Rolled-up': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'BDU Trousers': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Beanie': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Boonie': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Cargo Pants': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Cargo Pants (Colored)': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Cardigan': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Classic Shoe': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'CWU-27 Pilot Coveralls': {
-                'Non-HQ': { 'Cloth': 20 },
-                'HQ': {}
-            },
-            'Dress': {
-                'Non-HQ': { 'Cloth': 3 },
-                'HQ': {}
-            },
-            'Fedora': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Fisher Hat': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Flat Cap': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Half Mask': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Hunting Vest': { 
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'IIFS Large Combat Field Pack': { 
-                'Non-HQ': { 'Cloth': 32 },
-                'HQ': {}
-            },
-            'Jacket': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'Jeans': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Jeans (Colored)': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'KLMK Coveralls': {
-                'Non-HQ': { 'Cloth': 0 },
-                'HQ': {}
-            },
-            'Knit Cap': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Kolobok Backpack': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'M70 Backpack': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'M70 Cap': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'M70 Parka': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'M70 Trousers': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'M88 Field Cap': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'M88 Jacket': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'M88 Jacket - Rolled-up': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'M88 Trousers': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Mask (Medical)': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Mask (Latex)': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Mask (Ski)': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Officer\'s Cap': {
-                'Non-HQ': { 'Cloth': 64 },
-                'HQ': {}
-            },
-            'Panamka': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Paper Bag': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Polo': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Pullover': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Robe': {
-                'Non-HQ': { 'Cloth': 7 },
-                'HQ': {}
-            },
-            'Runner Shoe': {
-                'Non-HQ': { 'Cloth': 2 },
-                'HQ': {}
-            },
-            'Sneaker': {
-                'Non-HQ': { 'Cloth': 4 },
-                'HQ': {}
-            },
-            'Soviet Combat Boots': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Soviet Pilot Jacket': {
-                'Non-HQ': { 'Cloth': 11 },
-                'HQ': {}
-            },
-            'Soviet Pilot Pants': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Suit Jacket': {
-                'Non-HQ': { 'Cloth': 61 },
-                'HQ': {}
-            },
-            'Suit Pants': {
-                'Non-HQ': { 'Cloth': 50 },
-                'HQ': {}
-            },
-            'Sweater': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Sweat Pants': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'TShirt': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'US Combat Boots': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Veshmeshok Backpack': {
-                'Non-HQ': { 'Cloth': 1 },
-                'HQ': {}
-            },
-            'Wool Hat': {
-                'Non-HQ': { 'Cloth': 50 },
-                'HQ': {}
-            }
+        'ALICE Medium Backpack': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'Bandana': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Balaclava': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'BDU Blouse': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'BDU Blouse - Rolled-up': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'BDU Trousers': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Beanie': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Boonie': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Cargo Pants': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Cargo Pants (Colored)': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Cardigan': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Classic Shoe': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'CWU-27 Pilot Coveralls': {
+            'Non-HQ': { 'Cloth': 20 },
+            'HQ': {}
+        },
+        'Dress': {
+            'Non-HQ': { 'Cloth': 3 },
+            'HQ': {}
+        },
+        'Fedora': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Fisher Hat': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Flat Cap': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Half Mask': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Hunting Vest': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'IIFS Large Combat Field Pack': {
+            'Non-HQ': { 'Cloth': 32 },
+            'HQ': {}
+        },
+        'Jacket': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'Jeans': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Jeans (Colored)': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'KLMK Coveralls': {
+            'Non-HQ': { 'Cloth': 0 },
+            'HQ': {}
+        },
+        'Knit Cap': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Kolobok Backpack': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'M70 Backpack': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'M70 Cap': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'M70 Parka': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'M70 Trousers': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'M88 Field Cap': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'M88 Jacket': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'M88 Jacket - Rolled-up': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'M88 Trousers': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Mask (Medical)': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Mask (Latex)': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Mask (Ski)': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Officer\'s Cap': {
+            'Non-HQ': { 'Cloth': 64 },
+            'HQ': {}
+        },
+        'Panamka': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Paper Bag': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Polo': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Pullover': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Robe': {
+            'Non-HQ': { 'Cloth': 7 },
+            'HQ': {}
+        },
+        'Runner Shoe': {
+            'Non-HQ': { 'Cloth': 2 },
+            'HQ': {}
+        },
+        'Sneaker': {
+            'Non-HQ': { 'Cloth': 4 },
+            'HQ': {}
+        },
+        'Soviet Combat Boots': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Soviet Pilot Jacket': {
+            'Non-HQ': { 'Cloth': 11 },
+            'HQ': {}
+        },
+        'Soviet Pilot Pants': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Suit Jacket': {
+            'Non-HQ': { 'Cloth': 61 },
+            'HQ': {}
+        },
+        'Suit Pants': {
+            'Non-HQ': { 'Cloth': 50 },
+            'HQ': {}
+        },
+        'Sweater': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Sweat Pants': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'TShirt': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'US Combat Boots': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Veshmeshok Backpack': {
+            'Non-HQ': { 'Cloth': 1 },
+            'HQ': {}
+        },
+        'Wool Hat': {
+            'Non-HQ': { 'Cloth': 50 },
+            'HQ': {}
+        }
     },
     'HQ Components': {
-            'Ammo (HQ)': {
-                'Resources': {'Petrol': 1},
-                'Non-HQ': {'Ammo': 3},
-                'HQ': {}
-            },
-            'Attachment Part (HQ)': {
-                'Resources': {'Wooden Plank': 15},
-                'Non-HQ': { 'Attachment Part': 3},
-                'HQ': {}
-            },
-            'Component (HQ)': {
-                'Resources': { 'Gold Ingot': 15 },
-                'Non-HQ': { 'Component': 2 },
-                'HQ': {}
-            },
-            'Engine Part (HQ)': {
-                'Resources': { 'Copper Ingot': 45, 'Petrol': 45 },
-                'Non-HQ': { 'Engine Part': 9 },
-                'HQ': {}
-            },
-            'Interior Part (HQ)': {
-                'Resources': { 'Wooden Plank': 45 },
-                'Non-HQ': { 'Interior Part': 9 },
-                'HQ': {}
-            },
-            'Mechanical Component (HQ)': {
-                'Resources': { 'Gold Ingot': 45 },
-                'Non-HQ': { 'Mechanical Component': 9 },
-                'HQ': {}
-            },
-            'Rotor (HQ)': {
-                'Resources': { 'Silver Ingot': 30 },
-                'Non-HQ': { 'Rotor': 9 },
-                'HQ': {}
-            },
-            'Stabilizer (HQ)': {
-                'Resources': { 'Polyester': 15 },
-                'Non-HQ': {'Stabilizer': 3 },
-                'HQ': {}
-            },
-            'Weapon Part (HQ)': {
-                'Resources': { 'Iron Ingot': 15, 'Copper Ingot': 15 },
-                'Non-HQ': {'Weapon Part': 3 },
-                'HQ': {}
-            },
-            'Kevlar': {
-                'Resources': { 'Iron Plate': 1, 'Iron Ingot': 20 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
+        'Ammo (HQ)': {
+            'Resources': { 'Petrol': 1 },
+            'Non-HQ': { 'Ammo': 3 },
+            'HQ': {}
+        },
+        'Attachment Part (HQ)': {
+            'Resources': { 'Wooden Plank': 15 },
+            'Non-HQ': { 'Attachment Part': 3 },
+            'HQ': {}
+        },
+        'Component (HQ)': {
+            'Resources': { 'Gold Ingot': 15 },
+            'Non-HQ': { 'Component': 2 },
+            'HQ': {}
+        },
+        'Engine Part (HQ)': {
+            'Resources': { 'Copper Ingot': 45, 'Petrol': 45 },
+            'Non-HQ': { 'Engine Part': 9 },
+            'HQ': {}
+        },
+        'Interior Part (HQ)': {
+            'Resources': { 'Wooden Plank': 45 },
+            'Non-HQ': { 'Interior Part': 9 },
+            'HQ': {}
+        },
+        'Mechanical Component (HQ)': {
+            'Resources': { 'Gold Ingot': 45 },
+            'Non-HQ': { 'Mechanical Component': 9 },
+            'HQ': {}
+        },
+        'Rotor (HQ)': {
+            'Resources': { 'Silver Ingot': 30 },
+            'Non-HQ': { 'Rotor': 9 },
+            'HQ': {}
+        },
+        'Stabilizer (HQ)': {
+            'Resources': { 'Polyester': 15 },
+            'Non-HQ': { 'Stabilizer': 3 },
+            'HQ': {}
+        },
+        'Weapon Part (HQ)': {
+            'Resources': { 'Iron Ingot': 15, 'Copper Ingot': 15 },
+            'Non-HQ': { 'Weapon Part': 3 },
+            'HQ': {}
+        },
+        'Kevlar': {
+            'Resources': { 'Iron Plate': 1, 'Iron Ingot': 20 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
     },
     'Components': {
-            'Cloth': {
-                'Resources': { 'Fabric': 1, 'Polyester': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Iron Plate': {
-                'Resources': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Component': {
-                'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Tempered Glass': {
-                'Resources': { 'Glass': 2, 'Polyester': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Weapon Part': {
-                'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Stabilizer': {
-                'Resources': { 'Iron Ingot': 2, 'Gold Ingot': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Attachment Part': {
-                'Resources': { 'Copper Ingot': 2, 'Silver Ingot': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Ammo': {
-                'Resources': { 'Iron Ingot': 1, 'Charcoal': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Mechanical Component': {
-                'Resources': { 'Iron Ingot': 2, 'Copper Ingot': 2 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Engine Part': {
-                'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1, 'Petrol': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Interior Part': {
-                'Resources': { 'Fabric': 2, 'Polyester': 2 },
-                'Non-HQ': {},
-                'HQ': {}
-            },
-            'Rotor': {
-                'Resources': { 'Charcoal': 1, 'Polyester': 1 },
-                'Non-HQ': {},
-                'HQ': {}
-            }
+        'Cloth': {
+            'Resources': { 'Fabric': 1, 'Polyester': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Iron Plate': {
+            'Resources': { 'Iron Ingot': 1, 'Fabric': 1, 'Polyester': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Component': {
+            'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Tempered Glass': {
+            'Resources': { 'Glass': 2, 'Polyester': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Weapon Part': {
+            'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Stabilizer': {
+            'Resources': { 'Iron Ingot': 2, 'Gold Ingot': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Attachment Part': {
+            'Resources': { 'Copper Ingot': 2, 'Silver Ingot': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Ammo': {
+            'Resources': { 'Iron Ingot': 1, 'Charcoal': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Mechanical Component': {
+            'Resources': { 'Iron Ingot': 2, 'Copper Ingot': 2 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Engine Part': {
+            'Resources': { 'Iron Ingot': 1, 'Copper Ingot': 1, 'Petrol': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Interior Part': {
+            'Resources': { 'Fabric': 2, 'Polyester': 2 },
+            'Non-HQ': {},
+            'HQ': {}
+        },
+        'Rotor': {
+            'Resources': { 'Charcoal': 1, 'Polyester': 1 },
+            'Non-HQ': {},
+            'HQ': {}
+        }
     },
 }
 
@@ -1034,17 +1057,19 @@ function collectBaseResources(componentName, quantity) {
     const componentsMap = {};
 
     function helper(compName, qty) {
-        if (resourcesList.includes(compName)) {
-            localMap[compName] = (localMap[compName] || 0) + qty;
-            return;
-        }
+        const isResource = resourcesList.includes(compName);
+        const isComponent = componentsList.includes(compName);
 
-        if (componentsList.includes(compName)) {
+        const sub = componentResources[compName];
+
+        if (isComponent && sub) {
             componentsMap[compName] = (componentsMap[compName] || 0) + qty;
         }
 
-        const sub = componentResources[compName];
-        if (!sub) return;
+        if (!sub) {
+            localMap[compName] = (localMap[compName] || 0) + qty;
+            return;
+        }
 
         for (const [subName, subQty] of Object.entries(sub)) {
             helper(subName, subQty * qty);
@@ -1060,7 +1085,8 @@ function populateItems() {
     const category = document.getElementById('categories').value;
     const items = itemsByCategory[category];
     const itemsDropdown = document.getElementById('items');
-    
+    const craftingLevelContainer = document.getElementById("crafting-level");
+
     itemsDropdown.innerHTML = '';
 
     items.forEach(item => {
@@ -1070,14 +1096,19 @@ function populateItems() {
         itemsDropdown.appendChild(option);
     });
 
-    // Set initial crafting level text
-    const craftingLevelContainer = document.getElementById("crafting-level");
-    if (craftingLevelContainer) {
+    // Set crafting level for the first item
+    const firstItem = itemsDropdown.value;
+    const firstLevel = craftingLevels[firstItem] || "NA";
+    craftingLevelContainer.textContent = `Crafting Level: ${firstLevel}`;
+
+    // ✅ Add event listener to update crafting level on item change
+    itemsDropdown.addEventListener('change', () => {
         const selectedItem = itemsDropdown.value;
         const level = craftingLevels[selectedItem] || "NA";
         craftingLevelContainer.textContent = `Crafting Level: ${level}`;
-    }
+    });
 }
+
 
 // ✅ Initialize items when the page loads
 populateItems();
@@ -1099,24 +1130,24 @@ function calculateResources() {
     const itemData = selectedCategory[item];
 
     if (itemData['HQ']) {
-    for (const hqComponent in itemData['HQ']) {
-        const hqQuantity = itemData['HQ'][hqComponent] * quantity;
+        for (const hqComponent in itemData['HQ']) {
+            const hqQuantity = itemData['HQ'][hqComponent] * quantity;
 
-        totalHQComponents[hqComponent] = (totalHQComponents[hqComponent] || 0) + hqQuantity;
+            totalHQComponents[hqComponent] = (totalHQComponents[hqComponent] || 0) + hqQuantity;
 
-        if (hqComponent !== 'Special Rotor' && hqComponent !== 'Special Gun Barrel') {
-            const { resources: resMap, components: compMap } = collectBaseResources(hqComponent, hqQuantity);
-hqComponentBreakdown[hqComponent] = resMap;
+            if (hqComponent !== 'Special Rotor' && hqComponent !== 'Special Gun Barrel') {
+                const { resources: resMap, components: compMap } = collectBaseResources(hqComponent, hqQuantity);
+                hqComponentBreakdown[hqComponent] = resMap;
 
-    for (const [res, qty] of Object.entries(resMap)) {
-        totalResources[res] = (totalResources[res] || 0) + qty;
-    }
-    for (const [comp, qty] of Object.entries(compMap)) {
-        totalComponents[comp] = (totalComponents[comp] || 0) + qty;
-    }
+                for (const [res, qty] of Object.entries(resMap)) {
+                    totalResources[res] = (totalResources[res] || 0) + qty;
+                }
+                for (const [comp, qty] of Object.entries(compMap)) {
+                    totalComponents[comp] = (totalComponents[comp] || 0) + qty;
+                }
+            }
         }
     }
-}
 
 
     if (itemData['Resources']) {
@@ -1127,25 +1158,25 @@ hqComponentBreakdown[hqComponent] = resMap;
     }
 
     if (itemData['Non-HQ']) {
-    for (const nonHQComponent in itemData['Non-HQ']) {
-        const nonHQQuantity = itemData['Non-HQ'][nonHQComponent] * quantity;
+        for (const nonHQComponent in itemData['Non-HQ']) {
+            const nonHQQuantity = itemData['Non-HQ'][nonHQComponent] * quantity;
 
-        totalComponents[nonHQComponent] = (totalComponents[nonHQComponent] || 0) + nonHQQuantity;
+            totalComponents[nonHQComponent] = (totalComponents[nonHQComponent] || 0) + nonHQQuantity;
 
-        if (componentResources[nonHQComponent]) {
-            const { resources: resMap, components: compMap } = collectBaseResources(nonHQComponent, nonHQQuantity);
-            nonHQComponentBreakdown[nonHQComponent] = resMap;
+            if (componentResources[nonHQComponent]) {
+                const { resources: resMap, components: compMap } = collectBaseResources(nonHQComponent, nonHQQuantity);
+                nonHQComponentBreakdown[nonHQComponent] = resMap;
 
-            for (const [res, qty] of Object.entries(resMap)) {
-                if (!totalResources[res]) {
-    totalResources[res] = qty;
-} else {
-    totalResources[res] += qty;
-}
+                for (const [res, qty] of Object.entries(resMap)) {
+                    if (!totalResources[res]) {
+                        totalResources[res] = qty;
+                    } else {
+                        totalResources[res] += qty;
+                    }
+                }
             }
         }
     }
-}
 
 
     // ✅ Display once at the end
@@ -1192,7 +1223,7 @@ function displayBreakdown(hqBreakdown, nonHqBreakdown) {
         breakdownSection.id = "breakdownSection";
         breakdownSection.classList.add("hidden", "result"); // Add 'result' class
         document.getElementById("result").appendChild(breakdownSection);
-}
+    }
 
     breakdownSection.innerHTML = `
 <h3 style="
@@ -1207,30 +1238,30 @@ function displayBreakdown(hqBreakdown, nonHqBreakdown) {
 </h3>`;
 
     const combineAndRender = (breakdownData) => {
-    for (const [component, resources] of Object.entries(breakdownData)) {
-        const wrapper = document.createElement("div");
-        wrapper.style.marginBottom = "1rem"; // spacing between components
+        for (const [component, resources] of Object.entries(breakdownData)) {
+            const wrapper = document.createElement("div");
+            wrapper.style.marginBottom = "1rem"; // spacing between components
 
-        const header = document.createElement("div");
-        header.textContent = component;
-        header.style.fontWeight = "bold";
-        header.style.fontSize = "1.1rem"; // slightly larger
+            const header = document.createElement("div");
+            header.textContent = component;
+            header.style.fontWeight = "bold";
+            header.style.fontSize = "1.1rem"; // slightly larger
 
-        const list = document.createElement("ul");
-        list.style.listStyleType = "none"; // remove bullet points
-        list.style.paddingLeft = "1rem";
+            const list = document.createElement("ul");
+            list.style.listStyleType = "none"; // remove bullet points
+            list.style.paddingLeft = "1rem";
 
-        for (const [resName, qty] of Object.entries(resources)) {
-            const li = document.createElement("li");
-            li.textContent = `${resName}: ${qty}`;
-            list.appendChild(li);
+            for (const [resName, qty] of Object.entries(resources)) {
+                const li = document.createElement("li");
+                li.textContent = `${resName}: ${qty}`;
+                list.appendChild(li);
+            }
+
+            wrapper.appendChild(header);
+            wrapper.appendChild(list);
+            breakdownSection.appendChild(wrapper);
         }
-
-        wrapper.appendChild(header);
-        wrapper.appendChild(list);
-        breakdownSection.appendChild(wrapper);
-    }
-};
+    };
 
     combineAndRender(nonHqBreakdown);
     combineAndRender(hqBreakdown);
