@@ -9,12 +9,14 @@ const vehicles = [
     { name: "M923A1 Transport Truck - Canopy", price: 1800000, ores: 83, photo: "m923a1_cover.png" },
     { name: "Pickup Truck", price: 500000, ores: 18, honeycombs: 9999, photo: "pickuptruck.png" },
     { name: "UAZ-452 Off-Road", price: 95000, ores: 28, photo: "uaz452offroad.png" },
+    { name: "UAZ-452 Off-Road - Laboratory", price: 2000000, ores: 57, photo: "uaz452-laboratory.png" },
     { name: "UAZ-469 Off-Road", price: 10000, ores: 13, photo: "uaz469_cover.png" },
     { name: "UAZ-469 Off-Road - Open Top", price: 10000, ores: 13, photo: "uaz469offroad-opentop.png" },
     { name: "Ural-4320 Fuel Truck", price: 2800000, ores: 83, photo: "ural4320_fuel.png" },
     { name: "Ural-4320 Transport Truck", price: 2800000, ores: 100, photo: "ural4320transporttruck.png" },
     { name: "Ural-4320 Transport Truck - Canopy", price: 4000000, ores: 116, photo: "ural4320_cover.png" },
     { name: "VW Rolf", price: 800000, ores: 18, photo: "vwrolf.png" },
+    { name: "S1203 Minibus", price: 800000, ores: 18, photo: "S1203-Minibus.png" }, // Verify This
     { name: "MI8-MT Transport Helicopter", price: 58000000, ores: 26, photo: "mi8-mt.png" },
     { name: "UH-1H Transport Helicopter", price: 47000000, ores: 26, photo: "uh-1h.png" }
 ];
