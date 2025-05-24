@@ -95,7 +95,8 @@ const vehicles = [
     {
         "name": "UAZ-452 Off-Road - Laboratory",
         "price": 2000000,
-        "ores": 28,
+        "ores": 57,
+        "Canisters": 110,
         "photo": "uaz452-laboratory.png",
         "colors": "Grey",
         "whereToBuy": "Black Market",
