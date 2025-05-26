@@ -187,7 +187,7 @@ const vehicles = [
     "photo": "mi8-mt.png",
     "colors": "Camo",
     "whereToBuy": "Only obtainable through crafting",
-    "usage": "Russian High-capacity air transport. Holds: 2 Pilots - 12 Passengers"
+    "usage": "Russian High-capacity air transport. Holds: 3 Pilots - 13 Passengers"
   },
   {
     "name": "UH-1H Transport Helicopter",
@@ -203,8 +203,8 @@ const vehicles = [
 const discountRates = {
   neutral: 0,
   positive1: -5.5,
-  positive2: -5.5,
-  positive3: -15.31,
+  positive2: -10.5,
+  positive3: -19.10,
   negative1: 25.0,
   negative2: 28.0,
   negative3: 53.0
