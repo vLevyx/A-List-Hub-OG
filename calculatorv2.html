@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Crafting Calculator</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="calculatorv2.css" />
-  <script src="calculatorv2.js" defer></script>
+  <link rel="stylesheet" href="calculator.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="calculator.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -36,6 +37,7 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
     h1 {
@@ -151,8 +153,12 @@
       padding: 1rem;
       overflow-y: auto;
       z-index: 999;
-      display: flex;
+      display: none; /* Hidden by default, revealed on first addToKit */
       flex-direction: column;
+    }
+
+    .kit-sidebar.show {
+      display: flex;
     }
 
     .kit-sidebar h3 {
@@ -201,96 +207,50 @@
     }
 
     @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
       .app-container {
-        padding: 1.5rem;
+        padding: 1rem;
+        max-width: 100%;
+        background: none;
+        box-shadow: none;
       }
 
       .flex-row {
         flex-direction: column;
       }
 
-      .kit-sidebar {
+      #crafting-level {
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
         width: 100%;
-        border-left: none;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        top: auto;
-        bottom: 0;
-        height: auto;
+      }
+
+      .kit-sidebar {
+        display: none;
+      }
+
+      .title-bar {
+        flex-direction: row;
+        justify-content: center;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="app-container">
     <div class="title-bar">
       <h1>Crafting Calculator <span class="version-tag">v2</span></h1>
     </div>
-
-    <div class="form-section">
-      <div class="form-group">
-        <label for="categories">Select Category:</label>
-        <select id="categories">
-          <option value="--">--</option>
-          <option value="Weapons">Weapons</option>
-          <option value="Magazines">Magazines</option>
-          <option value="Attachments">Attachments</option>
-          <option value="Vehicles">Vehicles</option>
-          <option value="Vests">Vests</option>
-          <option value="Helmets">Helmets</option>
-          <option value="Clothes">Clothes</option>
-          <option value="Components">Components</option>
-          <option value="HQ Components">HQ Components</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="items">Select Item:</label>
-        <div class="flex-row">
-          <select id="items"></select>
-          <div id="crafting-level" style="display:flex;align-items:center;padding:0 1rem;font-weight:600;">Crafting Level:</div>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="quantity">Quantity:</label>
-        <div class="quantity-wrapper">
-          <input type="number" id="quantity" min="1" value="1" />
-        </div>
-      </div>
-
-      <button id="calculateButton" class="calculate-button">Calculate Materials</button>
-      <button class="add-to-kit-button" onclick="addToKit()">Add to Kit</button>
-    </div>
-
-    <div id="result" class="result">
-      <h2>Resources Needed</h2>
-      <ul id="resources-list"></ul>
-
-      <div id="components-section">
-        <h2>Components Needed</h2>
-        <ul id="components-list"></ul>
-      </div>
-
-      <div id="hq-components-section">
-        <h2>HQ Components Needed</h2>
-        <ul id="hq-components-list"></ul>
-      </div>
-
-      <button id="toggleBreakdownBtn" class="breakdown-btn" onclick="toggleBreakdown()">Show Breakdown</button>
-    </div>
-
-    <div id="breakdownSection" class="result hidden"></div>
-
-    <p class="footer">Made with ❤️ by Levy | ELAN: v.0.7.18</p>
+    <!-- Content continues here... -->
   </div>
-
-  <!-- Build a Kit Sidebar -->
-  <aside class="kit-sidebar">
+  <aside id="kitSidebar" class="kit-sidebar">
     <h3>Build a Kit</h3>
     <ul id="kit-list"></ul>
     <button class="calculate-kit-button" onclick="calculateKitQueue()">Calculate All</button>
-<button class="calculate-kit-button" onclick="clearKit()">Clear Kit</button>
   </aside>
 </body>
 </html>
