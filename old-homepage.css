@@ -1,0 +1,223 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    position: relative;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Add this CSS for the background image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://warfarehistorynetwork.com/wp-content/uploads/2022/10/arma6.jpg') no-repeat center center/cover;
+    filter: brightness(0.5);
+    z-index: -1;
+}
+
+.discord-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    background-color: #9664c2; /* Slightly transparent Discord purple */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Adjust spacing as needed */
+}
+
+.discord-logo {
+    width: 24px; /* Adjust size of the logo */
+    height: auto;
+    margin-left: 5px; /* Space between text and logo */
+}
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .discord-button {
+        width: 40px; /* Set a fixed width for consistency */
+        height: 40px; /* Set a fixed height for consistency */
+        padding: 0; /* Remove padding for a circular button */
+    }
+
+    .discord-button span {
+        display: none; /* Hide text on mobile */
+    }
+
+    .discord-logo {
+        width: 24px; /* Size of the logo */
+        height: auto;
+        display: block; /* Ensure the logo is a block element */
+        margin: auto; /* Center the logo */
+    }
+}
+
+/* Prevent background jumping on mobile */
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: scroll; /* Remove 'fixed' for mobile to avoid jump */
+    }
+}
+
+/* Transparent Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+    color: #fff;
+    backdrop-filter: blur(8px);
+}
+
+.navbar h1 {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ccc;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero-content {
+    z-index: 1; /* Ensure content is above the background overlay */
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cta-button {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 5px 0;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* About Section */
+.about-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+/* Transparent Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+    color: #fff;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-button {
+        width: 80%; /* Ensure buttons don't take up the full width */
+        max-width: 400px;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* Fix for page load starting at the bottom */
+html, body {
+    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    overflow-y: scroll; /* Ensure scroll behavior is natural */
+}
+
+/* Enforce height on mobile for button overlap fix */
+@media (max-width: 768px) {
+    .cta-button {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+    }
+}
